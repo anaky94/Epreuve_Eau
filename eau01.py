@@ -8,7 +8,8 @@ $> python exo.py
 00 01, 00 02, 00 03, 00 04, ... , 00 99, 01 02, ... , 97 99, 98 99
 $>
 """
-# 1: commencer par afficher 2 nombre tel que : 00 01, 00 02
+# 1: commencer par afficher 2 nombre tel que : 00 01, 00 02 par des condition si 
+# 2: afficher 
 # 2: ensuite afficher : 00 02  
 # 3: 
 # 4: 
@@ -19,9 +20,20 @@ b=0
 c=0
 d=0
 
-for  a in range (0,10):
-    for b in range(0,10):
-        print(a,b, end="")
+for  a in range (1):
+
+    for b in range(2):
+
+        for c in range(3):
+                 for d in range(4):
+            
+                    print(a, end="")
+                    print(b, end=" ")
+                    print(c, end="")
+                    print(d, end=", ")
+
+
+        
 
 
 
