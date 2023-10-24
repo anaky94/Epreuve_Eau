@@ -13,8 +13,8 @@ Afficher -1 si le paramètre est négatif ou mauvais.
 
 """
 Errors
-    renvoyer une erreur si plus d'un arguments 
-    renvoyer une erreur si l'arguments est une chaine de caractère 
+    le programme consiste a ce que l'untilisateur rentre un chiffreet on affiche L Neme élément de celui ci de la suite de fibo et prendre comment argument de départ (0,1,1,2)
+    géré les cas d'ereur
 """
 # 1 : enté : nombre utilisateur 
     #nombre utilisateur =x
@@ -22,10 +22,11 @@ Errors
 # si l'enté 
 a, b, c, = 0, 1 ,1
 
-fibo=input("entret un nombre : ")
+fibo=input("entrer un nombre : ")
 
 def suite_fibo:
-    while fibo < :
+    while true:
+        fibo < :
     print(b, end=" " )
     a,b,c= b, a+b, c+1
 
