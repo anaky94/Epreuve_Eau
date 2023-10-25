@@ -23,17 +23,19 @@ Errors
 
 a, b, c, = 0, 1 ,1
 
-fibo=input("entrer un nombre: ")
 
-def suite_fibo:
+
+def suite_fibo(user):
     valeur_str=int(input("entrer un argument: "))
     try: 
         valeur_str = int(valeur_str)
-        fibo < :
+        except:
+            print("ereur")
+            exit(1)
         print(b, end=" ")
         a,b,c= b, a+b, c+1
 
-
+user= int(input("entrer un argument"))
 
 
 
