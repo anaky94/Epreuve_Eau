@@ -1,6 +1,6 @@
 
 
-
+def valeur 
 
 while True : 
     try: 

@@ -20,15 +20,18 @@ Errors
     #nombre utilisateur =x
 # 2 : creer une liste vide 
 # si l'enté 
+
 a, b, c, = 0, 1 ,1
 
-fibo=input("entrer un nombre : ")
+fibo=input("entrer un nombre: ")
 
 def suite_fibo:
-    while true:
+    valeur_str=int(input("entrer un argument: "))
+    try: 
+        valeur_str = int(valeur_str)
         fibo < :
-    print(b, end=" " )
-    a,b,c= b, a+b, c+1
+        print(b, end=" ")
+        a,b,c= b, a+b, c+1
 
 
 
