@@ -20,23 +20,41 @@ Errors
     #nombre utilisateur =x
 # 2 : creer une liste vide 
 # si l'enté 
-
-a, b, c, = 0, 1 ,1
-
-
+"""
 
 def suite_fibo(user):
-    valeur_str=int(input("entrer un argument: "))
-    try: 
-        valeur_str = int(valeur_str)
-        except:
-            print("ereur")
-            exit(1)
+    a, b, c, = 0, 1 ,1
+    while c != user :
         print(b, end=" ")
         a,b,c= b, a+b, c+1
+    try: 
+        valeur_str = int(valeur_str)
+    except:
+        print("ereur")
+        exit(1)
+        
 
 user= int(input("entrer un argument"))
 
+
+"""
+
+n=input("Entré un chifre pour calculer Le N'eme élément de la suite de fibonancy ")
+a, b, c = 0, 1, 1 
+for i in range(n):
+    a, b, c= b, a+b, c+1
+
+    try: n=int(n)
+    except ValueError:
+        print("Error -1")
+        exit(1)
+    if n <0 :
+        print("ereur -1")
+        exit(1)
+    else len(n)>2:
+        print("ereur -1")
+        exit(1)
+  
 
 
 

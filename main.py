@@ -13,10 +13,9 @@ while True :
 
 """
 
-a, b, c= 1, 1, 1
-while c <9:
-    print(b, end=" ")
-    a,b,c = b, a+b, c+1
+liste=["python", "python", "python", "for"]
+length=len(liste)
+print(length)
 
 
 
