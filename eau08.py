@@ -30,17 +30,46 @@ phrase="".join(list)
 print(phrase)
 
 """
-def lettre_maj():
-    phrase= "Bonjour le monde"
+"""
+phrase=list(input("entrez une phrase :"))
 
-    premieres_lettres=""
+mot = phrase.split()
 
-    #la premiere lettre de chaque mot dans la phrase
-    premieres_lettres=[mot[0] for mot in phrase.split()]
 
-    print(premieres_lettres)
 
-print(lettre_maj())
+for mot in mot:   
+    
+    mot[0]=mot[0].upper()
+
+    if phrase.isnumeric():
+        print("error")
+        break
+
+phrase="".join(mot)
+
+"""
+phrase = input("entrez une phrase: ")
+
+mot=phrase.split() #convertir la phrase en liste de mots
+
+phrase = " ". join(mot)
+
+for i in phrase: # met en majuscule la prémière lettre de chaque mot 
+    mot[0]=mot[0].upper()
+
+phrase = " ". join(mot)
+print(phrase)
+
+
+
+    
+
+
+
+
+
+
+
 
 
 
