@@ -48,21 +48,14 @@ for mot in mot:
 phrase="".join(mot)
 
 """
-phrase = input("entrez une phrase: ")
-
-mot=phrase.split() #convertir la phrase en liste de mots
-
-phrase = " ". join(mot)
-
-for i in phrase: # met en majuscule la prémière lettre de chaque mot 
-    mot[0]=mot[0].upper()
-
-phrase = " ". join(mot)
+phrase = input ("entre un ephrase: ")
+phrase= phrase.title()
+if phrase.isnumeric():
+        print("error")
+        exit(1)
 print(phrase)
 
 
-
-    
 
 
 
