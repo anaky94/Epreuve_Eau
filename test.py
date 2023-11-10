@@ -40,13 +40,15 @@ phrase=" ".join(mots)
 
 print(phrase)
 """
+
+
 phrase = int(input("entré un chiffre" ))
-if phrase == int"":
- print(bool(phrase))
- else:
-     print(bool(phrase))
+for phrase in phrase:
+    print(phrase.isnumeric(phrase))
+
 
 print(type(phrase))
+
 
 
 

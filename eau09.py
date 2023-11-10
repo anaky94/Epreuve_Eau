@@ -16,11 +16,14 @@ false
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 """
 
-
-
-
-
-
+chaine= input("entré une chaine de caractère :")
+if chaine.isnumeric(): # isnumeric() permet de savoir si la chaine est composé que de chiffre
+    print("true")
+else:
+    print("false")
+if chaine == "":
+    print("error")
+    exit
 
 
 
