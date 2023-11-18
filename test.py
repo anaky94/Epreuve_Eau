@@ -42,12 +42,6 @@ print(phrase)
 """
 
 
-phrase = int(input("entré un chiffre" ))
-for phrase in phrase:
-    print(phrase.isnumeric(phrase))
-
-
-print(type(phrase))
 
 
 

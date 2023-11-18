@@ -22,14 +22,53 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 """
 # demander a l'utilisateur de rentré un chiffre 
 # l'utilisateur doit voir affichée toutes les valeurs comprise entre deux nombres dans l'ordre croissant min in clus et max inclus 
+# faire  une boucle qui aaffiche toute les valeurs entre deux nombre dans l'ordre croissant ou une condition ou les deux 
 
-min=input("entré un chiffre")
-while min =="":
-    print
 
-def max:
 
-def min :
+def demander_nombre (nb_min, nb_max):
+    nombre_int=0
+    
+    for i in range(nb_min, nb_max):
+        print(i)
+
+NOMBRE_MAX=input("entrez un nombre min: ")
+NOMBRE_MIN=input("entrez un nombre max: ")
+
+print(demander_nombre(int(NOMBRE_MIN), int(NOMBRE_MAX)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
