@@ -77,9 +77,9 @@ if choix == "3":
  trouver l'ecart enntre 1 et 5 en suite 5 et 8 et 8 et 10
 """
 
-ma_liste= [4, 1, 19, 3, 67]
 
 def trier():
+    ma_liste= [4, 1, 19, 3, 67]
    
     ma_liste.sort()
     print(ma_liste)
@@ -90,10 +90,15 @@ trier() # resultat du tableau trier
 # trouver l'ecart entre 1 et 5 en suite 5 et 8 et 8 et 10 
 
 def ecart():
-    for i in range(len(ma_liste)-1):
-        print(ma_liste[i+1]-ma_liste[i])
+    for i in range (len(trier())-1):
+        print(trier[i+1]-trier[i])
+
+
+ecart()
+
+
     
-    
+
 
 
 """"
