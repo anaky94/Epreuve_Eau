@@ -1,30 +1,52 @@
 """
 Créez un programme qui trie les éléments donnés en argument par ordre ASCII.
-
-
 Exemples d’utilisation :
 $> python exo.py Alfred Momo Gilbert
 Alfred Gilbert Momo
-
-
 $> python exo.py A Z E R T Y
 A E R T Y Z
 
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 """
+#il nous faut des lettre en arguments pour pouvoir les trier 
+# On vas  donc 
+# On vas donc utiliser sys.argv
 """
-ascii_liste=[97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115 ,116,117,118,119,120,121,122]
+liste= ["baonjour"]
+def list_ascii(liste):
+    ascci_liste = [chr(i) for i in range(97,123)] 
+    for ascii_liste in range(len(ascci_liste)-1):
+        for j in range(len(ascci_liste)-i-1):
+            if liste [j]> liste[j+1]:
+                liste[j], liste [j+1] = liste[j +1], liste[j]
+"""
+"""
+var = "p"
+var1 = "c"
 
-ascii_liste2=[a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
-
-ascii_liste3=[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]
-
-ascii_liste=[65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,82,83 ,84,85,86,87,88,89,90]
+def ordre( p, b):
+    ascii_liste = [chr(i) for i in range(97,123)]
+    if chr(p) > chr(b):
+        print(chr(p))
+        print(chr(b))
+    else:
+        print(chr(b))
+        print(chr(p))
+    
+ordre()
 """
 
-srt="panda"
-print(len(ord(srt[1])))
+def ordre (phrase):
+    lettres= list(phrase)
+    return sorted(lettres, key = lambda lettre : ord(lettre))
+
+phrase = "AZERTY"
+
+print(ordre(phrase))
+
+
+
 
 
 
