@@ -10,9 +10,8 @@ $>
 # 1: commencer par afficher 2 nombre tel que : 00 01, 00 02 par des condition si 
 # 2: afficher 
 # 2: ensuite afficher : 00 02  
-# 3: 
-# 4: 
-# 5: 
+
+""" 
 a=0
 b=0
 c=0
@@ -22,12 +21,11 @@ for  a in range (0, 10):
     for b in range(0, 10):
 
         for c in range(0, 10):
+        
                  for d in range(0,10):
             
                     print(a, end="")
                     print(b, end=" ")
                     print(c, end="")
                     print(d, end=", ")
-
-
-        
+"""
