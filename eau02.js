@@ -8,16 +8,41 @@ $>
 */
 const generationCombinaisons =(min=0, max=99) => {
     const combinanison = [];
+    // validation des paramètres 
+    if (min<0 || max > 99 || min >= max){
+        console.log("Les paramètres doivent être entre 0 et 99, et min doit être inférieur à max")
+    }
+    
+    //génération des combinaisons
+    for (let i= min; i <= max; i++){
+        for (let j =i +1; j<max; j++){
+            
+            combinanison.push( 
+                `${i.toString().padStart(2, '0')} ${j.toString().padStart(2, '0')}`);
+            }
+            
+    }
+    return combinanison.join(', ');
 
+};
+const main = () =>{
+    try {
+        if (process. argv.length > 2){
+            console.log("ce script ne nécessite pas d'argument");
+            precess.exit(1);
+        }
+
+        
+        const result = generationCombinaisons();
+        
+        
+        console.log(result);
+
+    } catch (error){
+        console.log("erreur")
+        process.exit(1)
+    }
 }
 
-// validation des paramètres 
-if (min<0 || max > 99 || min >= max){
-    console.log("Les paramètres doivent être entre 0 et 99, et min doit être inférieur à max")
-}
+main();
 
-//génération des combinaisons
-for (let i= min; i <= max; i++){
-    for (let j =i +1; j<max; j++)
-        combinations.push( `${}`)
-}git add 
