@@ -18,7 +18,6 @@ const arguments = process.argv.slice(2);
 if(arguments.length ===0){
     console.log("Aucun argument");
 }else {
-
         // console.log(arguments.join(' '));
       
         const argumentsInverses=[];
