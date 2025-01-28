@@ -5,16 +5,20 @@ $> python exo.py 14
 $>
 Afficher -1 si le paramètre est négatif ou mauvais.
  */
-const arguments = process.argv.slice(2)
+const arguments = process.argv.slice(2);
 
 function nombrePremier(n){
-    if (isNaN(n)){
-        console.log("veuillez fournir un  nombre valide")
-    } 
-    if (n%2==0){
-        ("veuillez fournir un nombre positif")
+    if (n<=1) {
+        console.log("est un nombre premier")
+    };
+    for(let i =2; i <=Math.sqrt(n); i++){
+        if  (n%i ===0 ){
+            console.log(n, "nest pas un nombre premier");
+            console.log(i);
+        }
     }
-    for i in range 
+    console.log(n,"est un nombre premier")
 }
 
+nombrePremier(arguments[2]);
 

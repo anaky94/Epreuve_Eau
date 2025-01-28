@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/test.css">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Convertisseur Heures/Minutes Bidirectionnel</title>
+   
+</head>
+
+    <div class="container">
+        <h2>Convertisseur Heure ⇄ Minutes</h2>
+        
+        <!-- Conversion Heure -> Minutes -->
+        <input type="text" id="timeInput" placeholder="Ex: 1h30 ou 45m">
+        <div class="result" id="timeResult"></div>
+
+        <!-- Conversion Minutes -> Heure -->
+        <input type="number" id="minutesInput" placeholder="Ex: 90">
+        <div class="result" id="minutesResult"></div>
+    </div>
+
+    <script src="./test.js">
+        const timeInput = document.getElementById('timeInput');
+        const minutesInput = document.getElementById('minutesInput');
+        const timeResult = document.getElementById('timeResult');
+        const minutesResult = document.getElementById('minutesResult');
+
+        // Fonction pour convertir "1h30" en minutes
+        function convertToMinutes(timeString) {
+            const regex = /(\d+)(h|m)?(\d+)?(m)?/i;
+            const matches = timeString.match(regex);
+
+            if (!matches) return null;
+
+            let hours = 0;
+            let minutes = 0;
+
+            if (timeString.includes('h')) {
+                hours = parseInt(matches[1]) || 0;
+                minutes = parseInt(matches[3]) || 0;
+            } else if (timeString.includes('m')) {
+                minutes = parseInt(matches[1]) || 0;
+            } else {
+                minutes = parseInt(timeString) || 0;
+            }
+
+            return (hours * 60) + minutes;
+        }
+
+        // Fonction pour convertir les minutes en "1h30"
+        function convertMinutesToTime(totalMinutes) {
+            if (isNaN(totalMinutes) || totalMinutes < 0) return null;
+
+            const hours = Math.floor(totalMinutes / 60);
+            const minutes = totalMinutes % 60;
+
+            let result = '';
+            if (hours > 0) result += `${hours}h`;
+            if (minutes > 0) result += `${minutes.toString().padStart(2, '0')}`;
+            if (!hours && !minutes) result = '0m';
+
+            return result || '0m';
+        }
+
+        // Écouteurs d'événements
+        timeInput.addEventListener('input', (e) => {
+            const time = e.target.value.trim();
+            const totalMinutes = convertToMinutes(time);
+
+            if (totalMinutes !== null && !isNaN(totalMinutes)) {
+                minutesInput.value = totalMinutes;
+                timeResult.innerHTML = `
+                    <p><strong>${time}</strong> =</p>
+                    <p style="color: #4CAF50; font-size: 24px;">${totalMinutes} minutes</p>
+                `;
+            } else {
+                timeResult.innerHTML = '<p style="color: red;">Format invalide!</p>';
+            }
+        });
+
+        minutesInput.addEventListener('input', (e) => {
+            const totalMinutes = parseInt(e.target.value);
+            const timeFormat = convertMinutesToTime(totalMinutes);
+
+            if (timeFormat !== null) {
+                timeInput.value = timeFormat;
+                minutesResult.innerHTML = `
+                    <p><strong>${totalMinutes} minutes</strong> =</p>
+                    <p style="color: #2196F3; font-size: 24px;">${timeFormat}</p>
+                `;
+            } else {
+                minutesResult.innerHTML = '<p style="color: red;">Valeur invalide!</p>';
+            }
+        });
+    </script>
+</body>
+</html>
+    
+
+</html>
