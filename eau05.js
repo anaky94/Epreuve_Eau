@@ -17,7 +17,7 @@ function nombrePremier(n){
             console.log(i);
         }
     }
-    console.log(n,"est un nombre premier")
+    console.log(n)
 }
 
 nombrePremier(arguments[2]);

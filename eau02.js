@@ -19,23 +19,18 @@ const generationCombinaisons =(min=0, max=99) => {
             
             combinanison.push( 
                 `${i.toString().padStart(2, '0')} ${j.toString().padStart(2, '0')}`);
-            }
-            
+            }      
     }
     return combinanison.join(', ');
-
 };
+
 const main = () =>{
     try {
         if (process. argv.length > 2){
             console.log("ce script ne nécessite pas d'argument");
             precess.exit(1);
         }
-
-        
         const result = generationCombinaisons();
-        
-        
         console.log(result);
 
     } catch (error){
@@ -46,3 +41,13 @@ const main = () =>{
 
 main();
 
+
+// Fonction utilisez 
+
+//Partie 1 Gestion d'erreur 
+
+//Partis 2 Parsing 
+
+//partis 3 resolution 
+
+//partis 4 affichage 

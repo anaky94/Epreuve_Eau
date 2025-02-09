@@ -1,0 +1,10 @@
+le code doit etre dans plusieur bloque 
+=> utilitaire 
+=> gestion erreur 
+=> 
+=> 
+séparez les fonctions,
+la gestion d'errer,
+le parsing
+la résolution
+et afficher les résultat 

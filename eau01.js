@@ -13,30 +13,35 @@ function genere_combinaison ():
 
 
 
+//Parsing 
+const args = process.argv.slice(2);
 
-/*===================================================*/
- 
+//gestion d'erreur 
+function errorArgv (){
+    if (args.length > 2 ||args.length ){
+        console.error("Erreur ; L'argument n'est pas nécessaire pour ce script")
+    } else {
+        console.log(combin());
+    } 
+    // return 
+}
 
-
-const  Combin = () => {
+//Résolution
+function  combin () {
     let result = "";
     for (let i=0; i<=9; i++){
         for (let j = i + 1; j <=9; j++){
             for(let k=j +1;k <=9; k++){
-                result += `${i}${j}${k} , `;
+                result += `${i}${j}${k}, `;
             }
-            
         }
-        
     }
-    return result.slice  (0,-1);
-    const errreuAvecArgument = () => {
-        if (process.argv[2]){
-            console.log("Erreur ; L'argument n'est pas nécessaire pour ce script")
-    
-        }else {
-            console.log(Combin())
-        }
+    return result.slice  (0, -1);
     };
-}
-console.log(Combin());
+
+
+
+
+
+//partis 4 affichage :
+errorArgv();
