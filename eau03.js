@@ -16,15 +16,24 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 //parsing
 const args = process.argv.slice(2);
 
+if (errorArgs(args)){
+    console.error("erreur ce script nécessite minimum 2 arguments")
+}
+
+
+if (not errorArgs){
+    console.log()
+}
 // Gestion d'erreur 
 function errorArgs(){
     if(args.length <= 1){
         console.error("ce script nécessite minimum 2 arguments");
-        process.exit();
+        process.exit(); // Sujestion : diviser lla premier condition et le lancerment de la condition reverseArguments().join(" "); 
     }else {
          console.log(reverseArguments().join(" "));
     }
 }
+
 // résolution
 function reverseArguments(){
     const reverseArgs=[];

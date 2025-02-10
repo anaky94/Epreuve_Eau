@@ -6,7 +6,7 @@ $> python exo.py
 00 01, 00 02, 00 03, 00 04, ... , 00 99, 01 02, ... , 97 99, 98 99
 $>
 */
-//parsing
+
 const args = process.argv.slice(2);
 // gestion d'erreur : 
 function errorArgv(){
