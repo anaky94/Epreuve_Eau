@@ -11,16 +11,10 @@ Afficher -1 si le paramètre est négatif ou mauvais.
 */
 const arguments = process.argv.slice(2)
 
-function fibonacci (n){
-    if (n<=1) return n
-    return fibonacci(n-1) + fibonacci(n-2);
-}
 
 
 
-
-
-
+// gestion d'erreur
 if (arguments.length ===0){
     console.log("veillez fournir un nombre en argument");
 }else {
@@ -36,9 +30,15 @@ if (arguments.length ===0){
             console.log(`F(${n}) =  ${fibonacci(n)}`);
             
         }
-    // }
-  
-}
-
-
-
+        // }
+        
+    }
+    
+    
+    
+    // resolution 
+    function fibonacci (n){
+        if (n<=1) return n
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+    

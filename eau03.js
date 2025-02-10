@@ -13,18 +13,28 @@ Bonjour 36
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 
  */
-const arguments = process.argv.slice(2);
+//parsing
+const args = process.argv.slice(2);
 
-if(arguments.length ===0){
-    console.log("Aucun argument");
-}else {
-        // console.log(arguments.join(' '));
-      
-        const argumentsInverses=[];
-        for(let i = arguments.length-1; i>=0; i--){
-            argumentsInverses.push(arguments[i]);
-        }
-    console.log(argumentsInverses.join(' '));
+// Gestion d'erreur 
+function errorArgs(){
+    if(args.length <= 1){
+        console.error("ce script nécessite minimum 2 arguments");
+        process.exit();
+    }else {
+         console.log(reverseArguments().join(" "));
+    }
+}
+// résolution
+function reverseArguments(){
+    const reverseArgs=[];
+    for(let i = args.length-1; i>=0; i--){
+        reverseArgs.push(args[i]);
+    }
+    return reverseArgs;
+    
 }
 
+//Affichage 
+errorArgs();
 
