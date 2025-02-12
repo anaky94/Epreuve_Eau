@@ -14,25 +14,30 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
  */
 //parsing
-const args = process.argv.slice(2);
+function getArgument () {
+    const args = process.argv.slice(2);
+    return args;
+}
 
 // Gestion d'erreur 
-function errorArgs(){
-    if(args.length <= 1){
+const  errorArgs = () => {
+    if (args.length <= 1) {
         console.error("ce script nécessite minimum 2 arguments");
         process.exit(); 
     }
     return false;
 }
+
 // résolution
-function reverseArguments(){
-    const reverseArgs=[];
+function reverseArguments () {
+    const reverseArgs = [];
     for(let i = args.length-1; i>=0; i--){
         reverseArgs.push(args[i]);
     }
     return reverseArgs;
 }
-function main (){
+
+function main () {
     errorArgs();
     console.log(reverseArguments().join(" "));
 }
