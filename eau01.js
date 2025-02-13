@@ -10,22 +10,24 @@ function genere_combinaison ():
     retourner combinaison 
     Créez un programme qui affiche toutes les différentes combinaisons possibles de trois chiffres dans l’ordre croissant, dans l’ordre croissant. La répétition est volontaire.
 */
-//Parsing 
-const args = process.argv.slice(2);
-//gestion d'erreur 
-function errorArgv (){
-    if (args.length > 0 ){ 
-        console.error("Erreur:  L'argument n'est pas nécessaire pour ce script");
-        process.exit();
 
-    } else {
-        
-        console.log(combin());
-    } 
-    
+//Parsing 
+const getArgument = () =>{
+    const args = process.argv.slice(2);
+    return args;
 }
+
+//gestion d'erreur 
+const isValideArguments = (args) =>{
+    if (args.length > 0 ){ 
+        return args // True 
+    } else {
+        return console.error("Ce Script prend au moins 2 arguments en parametre.");//False
+    } 
+}
+
 //Résolution
-function combin () {
+const combin = () => {
     let result = "";
     for ( let i = 0; i <= 9; i++){
         for ( let j = i + 1; j <= 9; j++){
@@ -36,5 +38,11 @@ function combin () {
     }
     return result.slice  (0, -1);
     };
+
 //partis 4 affichage :
-errorArgv();
+const display = () =>{
+    if(isValideArguments()===true){
+        return 
+    }
+
+}
