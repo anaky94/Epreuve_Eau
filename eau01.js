@@ -1,29 +1,37 @@
 /*
-function genere_combinaison ():
-    chiffre = [0,1,2,3,4,5,6,7,8,9];
-    combinaison=[]
-    pour i de 0 à longeur (chiffres) -3:
-        pour j de i + 1 à longuer (chiffre )-2:
-            pour k de j + 1 à longeur (chiffre)-1:
-                combinaison)=[chiffre[i]], chiffres[j], chiffre[k]
-                ajouter combinaison à combinaisons 
-    retourner combinaison 
-    Créez un programme qui affiche toutes les différentes combinaisons possibles de trois chiffres dans l’ordre croissant, dans l’ordre croissant. La répétition est volontaire.
+    COMBINAISON DE 3 CHIFFRES "
+   Créez un programme qui affiche toutes les différentes combinaisons possibles de trois chiffres dans l’ordre croissant, dans l’ordre croissant. La répétition est volontaire.
+
+
+Exemples d’utilisation :
+$> python exo.py
+012, 013, 014, 015, 016, 017, 018, 019, 023, 024, ... , 789
+$>
+
+987 n’est pas là parce que 789 est présent.
+
+020 n’est pas là parce que 0 apparaît deux fois.
+
+021 n’est pas là parce que 012 est présent.
+
+000 n’est pas là parce que cette combinaison ne comporte pas exclusivement des chiffres différents les uns des autres.
+
 */
 
 //Parsing 
-const getArgument = () =>{
+const getArgument = (args) =>{
     const args = process.argv.slice(2);
     return args;
-}
+};
 
 //gestion d'erreur 
 const isValideArguments = (args) =>{
-    if (args.length > 0 ){ 
-        return args // True 
+    if (args.length > 0){ 
+        return true;
     } else {
-        return console.error("Ce Script prend au moins 2 arguments en parametre.");//False
-    } 
+        console.error("Ce script ne nécessite pas d'arguments");
+        return false; 
+    };
 }
 
 //Résolution
@@ -41,8 +49,14 @@ const combin = () => {
 
 //partis 4 affichage :
 const display = () =>{
-    if(isValideArguments()===true){
-        return 
+    const display = getArguments (args); // récupération des arguments
+    if (!isValideArguments(args)){//vérifis si les arguments sont invalide 
+        return display; // si invalide, arrête l'éxecution
     }
 
-}
+    //si les arguments sont valides (aucun argument dans ce cas,) execute combine
+    const result = combin();
+    console.log(result); //affichage
+};
+
+display();

@@ -14,7 +14,7 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
  */
 //parsing
-function getArgument () {
+const getArgument = () => {
     const args = process.argv.slice(2);
     return args;
 }
@@ -29,7 +29,7 @@ const  errorArgs = () => {
 }
 
 // résolution
-function reverseArguments () {
+const reverseArguments = () => {
     const reverseArgs = [];
     for(let i = args.length-1; i>=0; i--){
         reverseArgs.push(args[i]);
@@ -37,7 +37,7 @@ function reverseArguments () {
     return reverseArgs;
 }
 
-function main () {
+const main = () => {
     errorArgs();
     console.log(reverseArguments().join(" "));
 }

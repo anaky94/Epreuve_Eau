@@ -6,17 +6,20 @@ $> python exo.py
 00 01, 00 02, 00 03, 00 04, ... , 00 99, 01 02, ... , 97 99, 98 99
 $>
 */
-
-const args = process.argv.slice(2);
-// gestion d'erreur : 
-function errorArgv(){
-    if (args.length>0){
-        console.error("erreur l'argument n'est pas nécéssaire pour ce script");
-        process.exit();
-    }else {
-        console.log(generationCombinaisons());
-    }
+const getArgument = (args) =>{
+    const args = process.argv.slice(2);
+    return args
 }
+// gestion d'erreur : 
+const isValideArguments = (args) =>{
+    if (args.length > 0){
+        return true
+    }else{
+        console.error("ce script ne nécessite pas d'arguments")
+        return false
+    };
+} 
+
 //Résolution
 function generationCombinaisons (min=0, max=100) {
     const combinanison = [];
@@ -25,8 +28,8 @@ function generationCombinaisons (min=0, max=100) {
         console.error("Les paramètres doivent être entre 0 et 99, et min doit être inférieur à max");
         process.exit();
     }
-    for (let i= min; i <= max; i++){
-        for (let j =i +1; j<max; j++){    
+    for (let i = min; i <= max; i++){
+        for (let j = i + 1; j < max; j++){    
                     combinanison.push( 
                         `${i.toString().padStart(2, '0')} ${j.toString().padStart(2, '0')}`);
           }
@@ -34,4 +37,14 @@ function generationCombinaisons (min=0, max=100) {
     return combinanison.join(', ');
 }
 //partis 4 affichage
-errorArgv(); 
+const display = () =>{
+ const display = getArgument(args);
+ if (!isValideArguments(args)){
+    return display
+ }
+
+
+ const result = generationCombinaisons();
+ console.log(result);
+}
+display(); 
