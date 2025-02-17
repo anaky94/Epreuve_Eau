@@ -6,22 +6,21 @@ $> python exo.py
 00 01, 00 02, 00 03, 00 04, ... , 00 99, 01 02, ... , 97 99, 98 99
 $>
 */
-const getArgument = (args) =>{
+function getArguments (){
     const args = process.argv.slice(2);
     return args
 }
 // gestion d'erreur : 
-const isValideArguments = (args) =>{
-    if (args.length > 0){
+function isValideArguments (args) {
+    if (args.length === 0){
         return true
     }else{
         console.error("ce script ne nécessite pas d'arguments")
         return false
     };
 } 
-
 //Résolution
-function generationCombinaisons (min=0, max=100) {
+function geerateCombin (min=0, max=100) {
     const combinanison = [];
     // validation des paramètres 
     if (min < 0 || max > 100 || min >= max){
@@ -37,14 +36,13 @@ function generationCombinaisons (min=0, max=100) {
     return combinanison.join(', ');
 }
 //partis 4 affichage
-const display = () =>{
- const display = getArgument(args);
+function display (){
+ const args = getArguments();
  if (!isValideArguments(args)){
-    return display
- }
+    return args
+}
 
-
- const result = generationCombinaisons();
+ const result = geerateCombin();
  console.log(result);
 }
 display(); 

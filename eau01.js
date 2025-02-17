@@ -19,14 +19,14 @@ $>
 */
 
 //Parsing 
-const getArgument = (args) =>{
+function getArguments (){
     const args = process.argv.slice(2);
     return args;
 };
 
 //gestion d'erreur 
-const isValideArguments = (args) =>{
-    if (args.length > 0){ 
+function isValideArguments (args) {
+    if (args.length === 0){ 
         return true;
     } else {
         console.error("Ce script ne nécessite pas d'arguments");
@@ -35,7 +35,7 @@ const isValideArguments = (args) =>{
 }
 
 //Résolution
-const combin = () => {
+function combin ()  {
     let result = "";
     for ( let i = 0; i <= 9; i++){
         for ( let j = i + 1; j <= 9; j++){
@@ -48,10 +48,10 @@ const combin = () => {
     };
 
 //partis 4 affichage :
-const display = () =>{
-    const display = getArguments (args); // récupération des arguments
+function display (){
+    const args = getArguments(); // récupération des arguments
     if (!isValideArguments(args)){//vérifis si les arguments sont invalide 
-        return display; // si invalide, arrête l'éxecution
+        return; // si invalide, arrête l'éxecution
     }
 
     //si les arguments sont valides (aucun argument dans ce cas,) execute combine

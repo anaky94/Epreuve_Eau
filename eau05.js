@@ -5,18 +5,18 @@ $> python exo.py 14
 $>
 Afficher -1 si le paramètre est négatif ou mauvais.
  */
-const getArgument = (args) => {
-    const arguments = process.argv.slice(2);
+//Parsing 
+function getArgument () {
+    const args = process.argv.slice(2);
     return args;
-
 }
-
-const nombrePremier = (n) => {
+// resolution 
+function nombrePremier (n) {
     if (n === 1) {
         return("nombre")
     }; 
-    
-    if(n <= 0){
+
+    if (n <= 0){
         return -1
     }
     for(let i =2; i <=Math.sqrt(n); i++){
@@ -27,6 +27,10 @@ const nombrePremier = (n) => {
     }
     console.log(n)
 }
+// affichage
+function display (){
+    const result = nombrePremier();
+    return result
+}
 
-nombrePremier(arguments[2]);
-
+display(args[2]);
