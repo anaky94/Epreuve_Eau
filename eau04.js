@@ -7,36 +7,36 @@ $>
 
 Afficher -1 si le paramètre est négatif ou mauvais.
 */
-const getArguments = (args) => {
+function getArguments () {
     const args = process.argv.slice(2);
     return args;
 };
 
 // gestion d'erreur
-const isValdieArguments = () => {
-    if (arguments.length <= 0){
+function isValdieArguments (args) {
+    if (args.length <= 0){
         return -1
     }
-       const n = parseInt(arguments [0]);
-        if (isNaN(n)){
-            console.log("-1");
-        }else if (n<0){
-            console.log("-1");
-        }
+    const n = parseInt(args [0]);
+    if (isNaN(n)){
+        console.log("-1");
+    }else if (n<0){
+        console.log("-1");
+    }
     
 };
 
 //resolution 
-const fibonacci = (n) => {
+function fibonacci  (n) {
     if (n <= 1) return n
     return fibonacci(n - 1) + fibonacci(n - 2);
 };
 
 // afficher les resultats 
-const display = (n) => {
-    const display = getArguments(args);
+function display (n) {
+    const args = getArguments();
     if (!isValdieArguments(args)){
-        return display;
+        return;
     }
     // console.log("suite de Fibonacci: ");
     // for (let i=0; i<=n; i++){

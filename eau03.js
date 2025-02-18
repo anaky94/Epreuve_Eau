@@ -14,33 +14,52 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
  */
 //parsing
-const getArgument = () => {
-    const args = process.argv.slice(2);
-    return args;
-}
+const args = process.argv.slice(2);
+// function getArgument () {
+//     const args = process.argv.slice(2);
+//     return args;
+// }
 
-// Gestion d'erreur 
-const  errorArgs = () => {
-    if (args.length <= 1) {
-        console.error("ce script nécessite minimum 2 arguments");
-        process.exit(); 
-    }
-    return false;
-}
+// // Gestion d'erreur 
+// function isValideArguments (args) {
+//     if (args.length >= 1) {
+//         return true;
+//     }else {
+//         console.error("ce script nécessite minimum 2 arguments");
+//         return false;
+
+//     }
+// }
 
 // résolution
-const reverseArguments = () => {
-    const reverseArgs = [];
-    for(let i = args.length-1; i>=0; i--){
-        reverseArgs.push(args[i]);
-    }
-    return reverseArgs;
+// function resolve (args) {
+//     const reverseArgs = [];
+//     for (let i = args.length - 1; i >= 0; i--){
+//         reverseArgs.push(args[i]);
+//     }
+//     return reverseArgs;
+// }
+
+const array = ["je ", "suis", "drole","et"]
+const Newarray =[];
+for( let i=array.length-1; i>=0; i-- ){
+    Newarray.push(array[i]);
+    console.log(Newarray.join(', '));
 }
 
-const main = () => {
-    errorArgs();
-    console.log(reverseArguments().join(" "));
-}
+
+// resolve();
+
 //Afficher le resultat
-main();
+// function display() {
+//     const args = getArgument();
+//     if (!isValideArguments(args)){
+//         return;
+//     }
+
+//     const result = resolve();
+//     console.log(result);
+
+// }
+// display();
 

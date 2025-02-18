@@ -19,7 +19,7 @@ $>
 */
 
 //Parsing 
-function getArguments (){
+function getArguments () {
     const args = process.argv.slice(2);
     return args;
 };
@@ -35,7 +35,7 @@ function isValideArguments (args) {
 }
 
 //Résolution
-function combin ()  {
+function combin () {
     let result = "";
     for ( let i = 0; i <= 9; i++){
         for ( let j = i + 1; j <= 9; j++){
@@ -48,7 +48,7 @@ function combin ()  {
     };
 
 //partis 4 affichage :
-function display (){
+function display () {
     const args = getArguments(); // récupération des arguments
     if (!isValideArguments(args)){//vérifis si les arguments sont invalide 
         return; // si invalide, arrête l'éxecution

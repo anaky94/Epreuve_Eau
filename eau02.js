@@ -6,7 +6,7 @@ $> python exo.py
 00 01, 00 02, 00 03, 00 04, ... , 00 99, 01 02, ... , 97 99, 98 99
 $>
 */
-function getArguments (){
+function getArguments () {
     const args = process.argv.slice(2);
     return args
 }
@@ -36,7 +36,7 @@ function geerateCombin (min=0, max=100) {
     return combinanison.join(', ');
 }
 //partis 4 affichage
-function display (){
+function display () {
  const args = getArguments();
  if (!isValideArguments(args)){
     return args
