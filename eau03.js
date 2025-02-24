@@ -22,7 +22,7 @@ function getArgument () {
 
 // Gestion d'erreur 
 function isValideArguments (args) {
-    if (args.length >= 1) {
+    if (args.length >= 2) {
         return true;
     }else {
         console.error("ce script nécessite minimum 2 arguments");

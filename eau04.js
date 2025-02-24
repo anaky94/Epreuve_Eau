@@ -18,9 +18,9 @@ function isValdieArguments (args) {
         return -1
     }
     const n = parseInt(args [0]);
-    if (isNaN(n)){
+    if ( isNaN(n) ){
         console.log("-1");
-    }else if (n<0){
+    }else if ( n < 0 ){
         console.log("-1");
     }
     
@@ -28,8 +28,23 @@ function isValdieArguments (args) {
 
 //resolution 
 function fibonacci  (n) {
-    if (n <= 1) return n
-    return fibonacci(n - 1) + fibonacci(n - 2);
+    if (n <= 1) {
+        return n
+    }else {
+        return fibonacci(n-1) + fibonacci(n-2);
+    } 
+
+    console.log()
+
+
+    
+    // const a = 0,  b = 1;
+    // for (let i = 2; i<=n; i++ ){
+    //     let c = a + b;
+    //     a = b;
+    //     b = c;
+    // }
+    // return b; 
 };
 
 // afficher les resultats 
@@ -40,8 +55,8 @@ function display (n) {
     }
     // console.log("suite de Fibonacci: ");
     // for (let i=0; i<=n; i++){
-    console.log(`F(${n}) =  ${fibonacci(n)}`);
+    console.log(fibonacci(n));
         //}
     };
 
-main();
+display();
