@@ -13,50 +13,40 @@ function getArguments () {
 };
 
 // gestion d'erreur
-function isValdieArguments (args) {
-    if (args.length <= 0){
-        return -1
-    }
-    const n = parseInt(args [0]);
-    if ( isNaN(n) ){
-        console.log("-1");
-    }else if ( n < 0 ){
-        console.log("-1");
-    }
-    
-};
+function isValideArguments (args) {
+    if (args.length === 0){
+        console.error("ce script nécéssite 1 argument")
+        return false;
+}    
+if (isNaN(args[0])){
+    console.error("l'argument doit être un nombre.")
+    return false;
+}
+return true;
+}
 
 //resolution 
-function fibonacci  (n) {
-    if (n <= 1) {
-        return n
-    }else {
-        return fibonacci(n-1) + fibonacci(n-2);
-    } 
-
-    console.log()
-
-
-    
-    // const a = 0,  b = 1;
-    // for (let i = 2; i<=n; i++ ){
-    //     let c = a + b;
-    //     a = b;
-    //     b = c;
-    // }
-    // return b; 
+function fibonacci (n) { 
+    let a = 0,  b = 1;
+    for (let i = 2; i <= n; i++){
+        let c = a + b;
+        a = b;
+        b = c;
+    }
+    return b; 
 };
 
 // afficher les resultats 
-function display (n) {
+function display () {
     const args = getArguments();
-    if (!isValdieArguments(args)){
+    if (!isValideArguments (args)){
         return;
     }
     // console.log("suite de Fibonacci: ");
     // for (let i=0; i<=n; i++){
-    console.log(fibonacci(n));
         //}
-    };
+    const n = Number(args[0]);
 
+    console.log(`${fibonacci(n)}`);
+}
 display();
