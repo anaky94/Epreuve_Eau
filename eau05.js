@@ -10,6 +10,16 @@ function getArgument () {
     const args = process.argv.slice(2);
     return args;
 }
+
+//gestiond'erreur
+function isValideArguments(args){
+            if (args.length === 0){
+                console.error("ce script nécéssite 1 argument")
+                return false;
+            }
+    
+}
+
 // resolution 
 function nombrePremier (n) {
     if (n === 1) {
@@ -19,8 +29,9 @@ function nombrePremier (n) {
     if (n <= 0){
         return -1
     }
-    for(let i =2; i <=Math.sqrt(n); i++){
-        if  (n%i ===0 ){
+    
+    for(let i = 2; i <= Math.sqrt(n); i++){
+        if  (n%i === 0 ){
             console.log(n, "nest pas un nombre premier");
             console.log(i);
         }
@@ -33,4 +44,4 @@ function display (){
     return result
 }
 
-display(args[2]);
+display();
