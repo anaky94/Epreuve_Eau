@@ -16,7 +16,7 @@ function nombrePremier (n) {
 
         }else 
         {
-            console.log("pas premier")
+            console.log() // afficher ici 
         }
     }
     
