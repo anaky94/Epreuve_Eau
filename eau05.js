@@ -23,7 +23,6 @@ function isValideArguments(args) {
         return false;
     }
     return true;
-    
 }
 
 // resolution 
@@ -60,6 +59,5 @@ function display (){
     const resultat = premierNombreSuperieur(n);
     console.log(`le premier nombre premier supérieur à ${n} est : ${resultat}`);
 }
-
 
 display();

@@ -1,24 +1,42 @@
-function nombrePremier (n) {
-    if (n === 1) {
-        return("nombre")
-    }; 
+/*  String dans string
+Créez un programme qui détermine si une chaîne de caractère se trouve dans une autre.
+Exemples d’utilisation :
+$> python exo.py bonjour jour
+true
+$> python exo.py bonjour joure
+false
+$> python exo.py 42
+error
 
-    if (n <= 0){
-        return -1
-    }
-    for(let i = 2; i <= Math.sqrt(n); i++){
-        if  (n%i === 0 ){
-            n=n+1
-            console.log(i);
-        }
-        if (n ===2){
-            console.log("premier")
+Afficher error et quitter le programme en cas de problèmes d’arguments.
+*/
 
-        }else 
+
+//le parsing
+function getArgument(){
+    const args = process.argv.slice(2);
+    return args;
+}
+
+//la gestion d'errer
+function isValideArguments(args){
+    if(args.length != 1){
+        console.error("ce script nécéssite 1 argument")
+    };
+} 
+function bonjour (a,b){
+    const args = process.argv.slice(2);
+    if (args[0]===args[1])
+        console.log(args[0],args[1]);
+    else 
         {
-            console.log() // afficher ici 
+            return args;
+
         }
-    }
     
 }
-nombrePremier(14)
+
+bonjour("bonjor","jour")
+
+//la résolution
+ //afficher les résultat 
