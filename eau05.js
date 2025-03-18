@@ -7,41 +7,47 @@ Afficher -1 si le paramètre est négatif ou mauvais.
  */
 
 //Parsing 
-function getArgument() {
-    const args = process.argv.slice(2);
-    return args;
+function getArguments() {
+    const arguments = process.argv.slice(2);
+    return arguments;
 }
 
 //gestiond'erreur
-function isValideArguments(args) {
-    if (args.length === 0){
+function isValidArguments(arguments) { // cet finction n'est pas reutilisable cette fonction fait 2 truc elle controla la taille des argument et controle si l'argumen est un nombre 
+// crer une fonction pour le 2em if 
+    if (arguments.length === 0){
     console.error("ce script nécéssite 1 argument")
     return false;
+    } else {
+        return true;
+
     }
-    if(isNaN(args[0])){
+}
+
+function isNotNumber (){
+    if (isNaN(arguments.length){
         console.error("L'argument doit être un nombre ");
         return false;
     }
-    return true;
 }
 
 // resolution 
-function nombrePremier(n) {
-    if (n <= 1) {
+function firstNumber(number) {
+    if (number <= 1) {
         return false; // 1 et les nombre négatifs ne sont pas premiers 
     }
 
     for (let i = 2; i <= Math.sqrt(n); i++){
         if  (n % i === 0 ){
-            return false; // n est divisible pas i donc pas premier
+            return false; // n'est divisible pas i donc pas premier
         }
     }
     return true; //n ets premier
 }
 
 //trouver le ppremier nombre sup à n 
-function premierNombreSuperieur(n){
-    let nombre = n + 1;
+function firstNumberSuperior(number){
+    let nombre = number + 1;
     while (true){
         if (nombrePremier(nombre)){
             return nombre; // retourne le premier nombre premier toruvé
@@ -51,13 +57,16 @@ function premierNombreSuperieur(n){
 }
 
 // affichage
-function display (){
-    const args = getArgument();
-    if (!isValideArguments(args))
+function displayNexfirstNumber (){
+    const args = getArguments();
+    if (!isValidArguments(args))
         return;
     const n = Number(args[0]); //convertir l'argument en nombre 
-    const resultat = premierNombreSuperieur(n);
+    const resultat = displayNexfirstNumber(number);
     console.log(`le premier nombre premier supérieur à ${n} est : ${resultat}`);
 }
 
 display();
+
+// Remarque romain 
+// renomer les 

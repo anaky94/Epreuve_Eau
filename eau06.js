@@ -13,7 +13,7 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 
 //le parsing
-function getArgument(){
+function getArguments(){
     const args = process.argv.slice(2);
     return args;
 }
@@ -31,7 +31,6 @@ function bonjour (a,b){
     else 
         {
             return args;
-
         }
     
 }
