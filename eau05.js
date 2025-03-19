@@ -13,7 +13,7 @@ function getArguments() {
 }
 
 //gestiond'erreur
-function isValidArguments(arguments) { // cet finction n'est pas reutilisable cette fonction fait 2 truc elle controla la taille des argument et controle si l'argumen est un nombre 
+function isValidArguments(arguments) { // cet fonction n'est pas reutilisable cette fonction fait 2 truc elle controla la taille des argument et controle si l'argumen est un nombre 
 // crer une fonction pour le 2em if 
     if (arguments.length === 0){
     console.error("ce script nécéssite 1 argument")
@@ -24,11 +24,14 @@ function isValidArguments(arguments) { // cet finction n'est pas reutilisable ce
     }
 }
 
-function isNotNumber (){
-    if (isNaN(arguments.length){
-        console.error("L'argument doit être un nombre ");
+function areAllNumbers (arguments){
+    for (let i = 0; i < arguments.length; i++){
+        if (isNaN(arguments[i])){
+            console.error("l'argument n'est pas un nombre")
+        }
         return false;
     }
+    return true;
 }
 
 // resolution 
@@ -38,7 +41,7 @@ function firstNumber(number) {
     }
 
     for (let i = 2; i <= Math.sqrt(n); i++){
-        if  (n % i === 0 ){
+        if  ( number % i === 0 ){
             return false; // n'est divisible pas i donc pas premier
         }
     }
@@ -58,15 +61,15 @@ function firstNumberSuperior(number){
 
 // affichage
 function displayNexfirstNumber (){
-    const args = getArguments();
-    if (!isValidArguments(args))
+    const arguments = getArguments();
+    if (!isValidArguments(arguments) || (!areAllNumbers(arguments)))
         return;
-    const n = Number(args[0]); //convertir l'argument en nombre 
+    const n = Number(arguments[0]); //convertir l'argument en nombre 
     const resultat = displayNexfirstNumber(number);
-    console.log(`le premier nombre premier supérieur à ${n} est : ${resultat}`);
+    console.log(`le premier nombre premier supérieur à ${number} est : ${resultat}`);
 }
 
-display();
+displayNexfirstNumber();
 
 // Remarque romain 
 // renomer les 
