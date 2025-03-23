@@ -13,14 +13,12 @@ function getArguments() {
 }
 
 //gestiond'erreur
-function isValidArguments(arguments) { // cet fonction n'est pas reutilisable cette fonction fait 2 truc elle controla la taille des argument et controle si l'argumen est un nombre 
-// crer une fonction pour le 2em if 
-    if (arguments.length === 0){
-    console.error("ce script nécéssite 1 argument")
+function isValidArguments(arguments) { 
+    if (arguments.length <= 0 && arguments.length  > 1) {
+        console.error("ce script nécéssite un argument")
     return false;
     } else {
         return true;
-
     }
 }
 
