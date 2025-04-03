@@ -16,32 +16,28 @@ function getArguments() {
 function isValidArguments(arguments) { 
     if (arguments.length <= 0 && arguments.length  > 1) {
         console.error("ce script nécéssite un argument")
-    return false;
-    } else {
-        return true;
+    return false;  
     }
+    return true;
 }
 
 function areAllNumbers (arguments){
     for (let i = 0; i < arguments.length; i++){
         if (isNaN(arguments[i])){
-            console.error("l'argument n'est pas un nombre")
+            console.error("ce script nécessite un  nombre en arguments")
+            return false;
         }
-        return false;
     }
     return true;
 }
 
 // resolution 
-function firstNumber(number) {
-    if (number <= 1) {
-        return false; // 1 et les nombre négatifs ne sont pas premiers 
-    }
-
-    for (let i = 2; i <= Math.sqrt(n); i++){
-        if  ( number % i === 0 ){
+function isPrime(number) {
+    if (number <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(number); i++){
+        if  ( number % i === 0 ) return false;
             return false; // n'est divisible pas i donc pas premier
-        }
+        
     }
     return true; //n ets premier
 }
@@ -58,7 +54,7 @@ function firstNumberSuperior(number){
 }
 
 // affichage
-function displayNexfirstNumber (){
+function displayNexfirstNumber (number){
     const arguments = getArguments();
     if (!isValidArguments(arguments) || (!areAllNumbers(arguments)))
         return;
