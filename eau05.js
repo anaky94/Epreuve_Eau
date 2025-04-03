@@ -35,35 +35,34 @@ function areAllNumbers (arguments){
 function isPrime(number) {
     if (number <= 1) return false;
     for (let i = 2; i <= Math.sqrt(number); i++){
-        if  ( number % i === 0 ) return false;
-            return false; // n'est divisible pas i donc pas premier
-        
+        if  ( number % i === 0 ) return false;        
     }
     return true; //n ets premier
 }
 
 //trouver le ppremier nombre sup à n 
-function firstNumberSuperior(number){
-    let nombre = number + 1;
+function findNextPrime(number){
+    let candidate = number + 1;
     while (true){
-        if (nombrePremier(nombre)){
-            return nombre; // retourne le premier nombre premier toruvé
+        if (isPrime(candidate)){
+            return candidate; 
         }
-        nombre++; //pass eau nombre suivant
+        candidate++; //pass eau nombre suivant
     }
 }
 
 // affichage
-function displayNexfirstNumber (number){
+function displayNextPrime() {
     const arguments = getArguments();
-    if (!isValidArguments(arguments) || (!areAllNumbers(arguments)))
-        return;
-    const n = Number(arguments[0]); //convertir l'argument en nombre 
-    const resultat = displayNexfirstNumber(number);
-    console.log(`le premier nombre premier supérieur à ${number} est : ${resultat}`);
+    if (!isValidArguments(arguments) || (!areAllNumbers(arguments))){
+        return;   
+    }
+    const number = Number(arguments[0]); //convertir l'argument en nombre 
+    const result = findNextPrime(number);
+    console.log(`le premier nombre premier supérieur à ${number} est : ${result}`);
 }
 
-displayNexfirstNumber();
+displayNextPrime();
 
 // Remarque romain 
 // renomer les 
