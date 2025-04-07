@@ -15,6 +15,7 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 caract1 = input("entreé quelque chose ")
 caract2 = input("entreé quelque chose ")
+
 while type(caract1) != str or type(caract2) != str:
     caract1=input("entreé quelque chose ");
     caract2=input("entreé quelque chose ");

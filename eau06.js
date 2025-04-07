@@ -13,29 +13,52 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 
 //le parsing
-function getArguments(){
-    const args = process.argv.slice(2);
-    return args;
+function getArguments() {
+    const arguments = process.argv.slice(2);
+    return arguments;
 }
 
-//la gestion d'errer
-function isValideArguments(args){
-    if(args.length != 1){
+//la Gestion d'errer
+function isValideArguments(arguments){
+    if(arguments.length =! 1 ){
         console.error("ce script nécéssite 1 argument")
+        return false;
     };
+    return true 
 } 
-function bonjour (a,b){
-    const args = process.argv.slice(2);
-    if (args[0]===args[1])
-        console.log(args[0],args[1]);
-    else 
-        {
-            return args;
+
+
+function areAlleNumbers() {
+    for (let i = 0; i<arguments.length; i++){
+        if(str(arguments[i])){
+            console.error("ce script cécessite des lettre en arguments ")
+            return false;
         }
-    
+    }
+    return true;
 }
 
-bonjour("bonjor","jour")
+function resolve(){
+    while(true){
+        const firstLetter = 0;
+        const secondLetter = 0;
+         for (let )
+    
+    }
+}
 
-//la résolution
- //afficher les résultat 
+// function bonjour (a,b){
+//     const args = process.argv.slice(2);
+//     if (args[0]===args[1])
+//         console.log(args[0],args[1]);
+//     else 
+//         {
+//             return args;
+//         }
+    
+// }
+
+// bonjour("bonjor","jour")
+
+// //la résolution
+//  //afficher les résultat 
