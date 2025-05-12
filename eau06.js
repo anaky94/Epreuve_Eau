@@ -13,84 +13,60 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 
 // le parsing
-// function getArguments() {
-//     const args = process.argv.slice(2);
-//     return args;
-// }
+function getArguments() {
+    const args = process.argv.slice(2);
+    return args;
+     
+}
 
-// //la Gestion d'errer
-// function isValideArguments(arguments){
-//     if(arguments.length =! 1 ){
-//         console.error("ce script nécéssite 1 argument")
-//         return false;
-//     };
-//     return true 
-// } 
+//la Gestion d'errer
+function isValideArguments(args){
+    if(args.length !== 2 ){
+        console.error("Erreur : ce script nécéssite 2 arguments");
+        process.exit(1);
+    }
+    const firstArgument = args[0]; 
+    const secondArgument = args[1];
 
-// function areAlleNumbers() {
-//     for (let i = 0; i < arguments.length; i++){
-//         if (str(arguments[i])){
-//             console.error("ce script cécessite des lettre en arguments ")
-//             return false;
-//         }
-//     }
-//     return true;
-// }
+    return {firstArgument,secondArgument};
+} 
 
-// function resolve(args){
+//
+function main (){
+    // Etape 1: de recupération
+    const rawArgs = getArguments();// ["hello" ,"ell" ] (non vérifiés)
 
-//         const firstArg = args[0];
-//         const secondArg = args[1];
-        
-//         for ( let firstArg = 0; i <= firstArg.length; i++ ){
-//             for(let secondArg = 0; i <= secondArg.length; i++ ){
-//                 if(firstArg === secondArg) {
-//                     return true
-//                 } else false            
-//             }
-//         }  
-    
-// // };
+    //Etape 2 : Validation/netoyage
+    return {firstArgument,secondArgument} = isValideArguments(rawArgs);
+
+    //Etape 3 : Logique principale
+    if (firstArgument.incleudes(secondArgument)){
+        console.log(true)
+    }else{
+        console.log(false)
+    }
+}   
+
+function display (){
+
+}
+
+
 
 
 // resolve();
 
 // premier élément c'est savoir quand je parcours les lettre de l'argments[0] si ces lettre son similaire à l'arguments [1] afficher true sinon false
 
-//voir pour faire une deuxiemme boucle
-//
-
-// function bonjour (a,b){
-//     const args = process.argv.slice(2);
-//     if (args[0]===args[1])
-//         console.log(args[0],args[1]);
-//     else 
-//         {
-//             return args;
-//         }
-    
-// }
-
-// bonjour("bonjor","jour")
 
 // //la résolution
 //  //afficher les résultat 
 
-function getArguments() {
-    const args = process.argv.slice(2);
-    return args;
-}
 
-const args = getArguments();
-const firstArgument = args[0] 
-const secondArgument = args[1]
+// determiner si la taille de la premier chaine est < à la taille de la 2eme chaine retourner false.
 
-if (firstArgument && secondArgument && length.firstArgument === length.secondArgument)
-    console.log (true)
-    else{
-        console.log(false )
-    } 
-    // console.log(firstArgument, secondArgument,); 
+//dans une boucle determiner si la taille du premier arguments ets - que la taille du second arguments  + 1 avec un if : (qui consiste à dire que si l'index du premier argument == à l'index du 2em argument return true )
+
 
 
 

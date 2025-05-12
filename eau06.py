@@ -17,8 +17,8 @@ caract1 = input("entreé quelque chose ")
 caract2 = input("entreé quelque chose ")
 
 while type(caract1) != str or type(caract2) != str:
-    caract1=input("entreé quelque chose ");
-    caract2=input("entreé quelque chose ");
+    caract1 = input("entreé quelque chose ");
+    caract2 = input("entreé quelque chose ");
   
     if not caract1.isdigit() or not  caract2.isdigit():
         print("erreur")

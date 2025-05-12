@@ -64,5 +64,4 @@ function displayNextPrime() {
 
 displayNextPrime();
 
-// Remarque romain 
-// renomer les 
+
