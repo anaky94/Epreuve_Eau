@@ -11,62 +11,61 @@ error
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 */
 
-
+/* 
+ */
 // le parsing
 function getArguments() {
-    const args = process.argv.slice(2);
-    return args;
-     
+    return process.argv.slice(2); 
 }
 
-//la Gestion d'errer
-function isValideArguments(args){
+//la Gestion d'erreur
+function validateArguments(args){ 
     if(args.length !== 2 ){
-        console.error("Erreur : ce script nécéssite 2 arguments");
-        process.exit(1);
+        console.error("Erreur");
+        process.exit(1); 
     }
-    const firstArgument = args[0]; 
-    const secondArgument = args[1];
 
-    return {firstArgument,secondArgument};
+    //vérifier que les arguments ne sont pas vides 
+    if(!args[0] || !args[1]) {
+        console.error("Erreur : les argumenst ne peuvent pas être vide");
+        proces.exit(1);
+    }
+
+    return {
+        fullString : args[0],
+        subString : args[1]
+    };
 } 
 
-//
-function main (){
-    // Etape 1: de recupération
-    const rawArgs = getArguments();// ["hello" ,"ell" ] (non vérifiés)
+//Resolution 
+function resolve() {
+    const args = getArguments();
+    const {fullString, subString} = validateArguments(args);
 
-    //Etape 2 : Validation/netoyage
-    return {firstArgument,secondArgument} = isValideArguments(rawArgs);
+    let found = false;
 
-    //Etape 3 : Logique principale
-    if (firstArgument.incleudes(secondArgument)){
-        console.log(true)
-    }else{
-        console.log(false)
+    for (let i = 0; i <= fullString.length-subString.length; i++){
+        if(fullString.slice(i, i + subString.length)=== subString){
+            found = true;
+            break
+        }
     }
-}   
 
-function display (){
-
+    console.log(found);
 }
 
 
 
 
-// resolve();
+//Affichage 
+function display() {
+    const args = getArguments();
+    if (!validateArguments(args)){
+        return
+    }
 
-// premier élément c'est savoir quand je parcours les lettre de l'argments[0] si ces lettre son similaire à l'arguments [1] afficher true sinon false
-
-
-// //la résolution
-//  //afficher les résultat 
-
-
-// determiner si la taille de la premier chaine est < à la taille de la 2eme chaine retourner false.
-
-//dans une boucle determiner si la taille du premier arguments ets - que la taille du second arguments  + 1 avec un if : (qui consiste à dire que si l'index du premier argument == à l'index du 2em argument return true )
-
+    
+}
 
 
 
