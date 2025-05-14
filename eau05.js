@@ -13,6 +13,7 @@ function getArguments() {
 }
 
 //gestiond'erreur
+
 function isValidArguments(arguments) { 
     if (arguments.length <= 0 && arguments.length  > 1) {
         console.error("ce script nécéssite un argument")
