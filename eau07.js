@@ -27,12 +27,38 @@ function validateArguments(args){
     }
 }
 
-
-
 //Resolution 
 function resolve(){
+    const args = getArguments();
+    // console.log(args)
 
-    /*premier idé c'est d créer une boucle qui parcours lettre / lettre l'argument ecrit dans le terminal et si il rencontre une voyelle returner la voyelle en sorti de ma boucle une majuscule */
+    const chaineComplete = args.join(" ")
+    // console.log(chaineComplete);
     
-}
+    
+    for ( const letter of chaineComplete){
+        
 
+        console.log (letter ) // je veux afficher une majuscule une lettre / 2 
+       
+    }
+
+    console.log(args.slice());
+    
+    // for (let i=0; i < args.length; i++){
+    //     console.log(args.length.slice());
+        ; //objctif de la condition si mon argument par une lettre metre la lettre en mmajuscule 
+}
+    /*premier idée c'est de créer une boucle qui parcours lettre part lettre l'argument ecrit dans le terminal et si il rencontre une voyelle returner la voyelle en sorti de ma boucle une majuscule */
+    
+resolve();
+
+// Affichage 
+/* 
+function display(){
+      const args = getArguments();
+    if (!validateArguments(args)){
+        return
+    }
+
+} */ 

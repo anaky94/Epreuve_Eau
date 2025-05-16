@@ -41,7 +41,7 @@ function isPrime(number) {
     return true; //n ets premier
 }
 
-//trouver le ppremier nombre sup à n 
+//trouver le premier nombre sup à n 
 function findNextPrime(number){
     let candidate = number + 1;
     while (true){
