@@ -37,17 +37,16 @@ function resolve(){
     
     
     for ( const letter of chaineComplete){
-        
-
+        if (args[0].length<args[2]){
+            console.log(letter.uppercase())
+        }
         console.log (letter ) // je veux afficher une majuscule une lettre / 2 
+        //  si la premier lettre est < a la deuxiemme console.log(uppercase() la lettre inférieur tout en affichant toute les lettre )
        
     }
 
-    console.log(args.slice());
+    console.log(letter);
     
-    // for (let i=0; i < args.length; i++){
-    //     console.log(args.length.slice());
-        ; //objctif de la condition si mon argument par une lettre metre la lettre en mmajuscule 
 }
     /*premier idée c'est de créer une boucle qui parcours lettre part lettre l'argument ecrit dans le terminal et si il rencontre une voyelle returner la voyelle en sorti de ma boucle une majuscule */
     
