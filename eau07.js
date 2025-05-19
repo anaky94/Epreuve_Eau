@@ -16,7 +16,7 @@ function getArguments(){
 
 //Gestion d'erreur 
 function validateArguments(args){ 
-    if (args.length <= 0 && args.length > 1){
+    if (args.length == 1){
         console.error("ce script nécéssite un argument")
         process.exit(1); 
     }
@@ -30,26 +30,27 @@ function validateArguments(args){
 //Resolution 
 function resolve(){
     const args = getArguments();
-    // console.log(args)
+    validateArguments(args);
+    
+    const firstArgument = args[0]
+    let compteur = 0; 
+    
+    for ( const letter of firstArgument  ){
+        if (letter>= 'a' && letter <= 'z' || letter >= 'A' && letter <= 'Z'){
+            if (compteur % 2 === 0 ){
+                console.log(letter.toUpperCase())
+            else {
+                console.log(letter.toLowerCase())
 
-    const chaineComplete = args.join(" ")
-    // console.log(chaineComplete);
-    
-    
-    for ( const letter of chaineComplete){
-        if (args[0].length<args[2]){
-            console.log(letter.uppercase())
+            }
+            
         }
-        console.log (letter ) // je veux afficher une majuscule une lettre / 2 
-        //  si la premier lettre est < a la deuxiemme console.log(uppercase() la lettre inférieur tout en affichant toute les lettre )
-       
-    }
+        }
+        
 
-    console.log(letter);
+
     
 }
-    /*premier idée c'est de créer une boucle qui parcours lettre part lettre l'argument ecrit dans le terminal et si il rencontre une voyelle returner la voyelle en sorti de ma boucle une majuscule */
-    
 resolve();
 
 // Affichage 
