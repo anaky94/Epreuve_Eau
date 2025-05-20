@@ -16,7 +16,7 @@ function getArguments(){
 
 //Gestion d'erreur 
 function validateArguments(args){ 
-    if (args.length == 1){
+    if (args.length ==! 1){
         console.error("ce script nécéssite un argument")
         process.exit(1); 
     }
@@ -28,37 +28,29 @@ function validateArguments(args){
 }
 
 //Resolution 
-function resolve(){
-    const args = getArguments();
-    validateArguments(args);
-    
+function letterOneOutOfTwo(){
     const firstArgument = args[0]
-    let compteur = 0; 
+    let compteur = []; 
     
-    for ( const letter of firstArgument  ){
-        if (letter>= 'a' && letter <= 'z' || letter >= 'A' && letter <= 'Z'){
-            if (compteur % 2 === 0 ){
-                console.log(letter.toUpperCase())
-            else {
-                console.log(letter.toLowerCase())
-
-            }
-            
+    for (let i = 0; i < firstArgument.length; i++){
+        const letter = mot[i];
+        if ( i % 2 === 0 ){
+            compteur.push(letter.toUpperCase())
+        } else {
+            compteur.push (letter.toLowerCase())
         }
-        }
-        
-
-
-    
-}
-resolve();
-
-// Affichage 
-/* 
-function display(){
-      const args = getArguments();
-    if (!validateArguments(args)){
-        return
     }
 
-} */ 
+    console.log(resultat.join("" ))  
+}
+
+    
+// Affichage 
+function display(){
+    const args = getArguments();
+    validateArguments(args);
+    letterOneOutOfTwo(args);
+
+} 
+
+display();
