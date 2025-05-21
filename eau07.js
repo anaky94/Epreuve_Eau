@@ -10,12 +10,12 @@ error
 Afficher error et quitter le programme en cas de problèmes d’arguments */
 
 //Parsing 
-function getArguments(){
+function getArguments() {
     return process.argv.slice(2); 
 }
 
 //Gestion d'erreur 
-function validateArguments(args){ 
+function validateArguments(args) { 
     if (args.length ==! 1){
         console.error("ce script nécéssite un argument")
         process.exit(1); 
@@ -28,8 +28,8 @@ function validateArguments(args){
 }
 
 //Resolution 
-function letterOneOutOfTwo(){
-    const firstArgument = args[0]
+function letterOneOutOfTwo() {
+    const firstArgument = args[0];
     let compteur = []; 
     
     for (let i = 0; i < firstArgument.length; i++){
@@ -46,7 +46,7 @@ function letterOneOutOfTwo(){
 
     
 // Affichage 
-function display(){
+function display() {
     const args = getArguments();
     validateArguments(args);
     letterOneOutOfTwo(args);
