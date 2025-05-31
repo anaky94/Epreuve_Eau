@@ -25,24 +25,36 @@ function validateArguments(args) {
         console.error("error");
         process.exit(1);
     }
+
+    if (typeof str !== 'string'){
+        console.error ("L'argument doit êtr être une chaine de caractères")
+
+    }
+    if (str.trim() === ""){
+        return "";
+    }
 }
 
 //resolution 
 function beginWordWithUpperCase() {
-    //1 premier lettre de chaque mot d'une chaine de caractère en  maj les autre en minuscule 
-    //les mots ne sont délimité / un espace, une etabulation 
-    const worduppercase = args[0];
 
-    for (let i = 0; i < beginWordWithUpperCase.length; i++){
-        
-    }
+    const separatorRegex = /[\s\t]/; //Detecte les espace et tabulation comme separateur 
+    const words = str.split(separatorRegex); //separe les chaines en mots
+    
+    const processeWords = words.map(word => {
+        if (!word) return ""; //ignore les mots 
 
-
+        return word.charAt(0).toUpperCase() + word.slice(1).tolowerCase();
+    })  
+    return processeWords.join(""); // recombine avec des espaces 
 }
 
 
 //Display
 function display(){
+    const args = getArguments();
+    validateArguments(args);
+     beginWordWithUpperCase(args);
 
 }
 
