@@ -37,7 +37,17 @@ function validateArguments(){
 
 //resolution 
 function noNumber(){
-    //premièrement 
+    constargs =getArguments
+    if (typeof str !== 'string'){
+        console.log("true") 
+    }else {
+        console;log("false")
 
+    }
+    //Premièrement 
+    //Si la l'argument est un mot et une lettre console.log("erreur") 
+    // si l'argurment est dofferent d'une d'un mot console.log("true ") 
 
 }
+
+noNumber();
