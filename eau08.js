@@ -54,7 +54,7 @@ function beginWordWithUpperCase() {
 function display(){
     const args = getArguments();
     validateArguments(args);
-     beginWordWithUpperCase(args);
+    beginWordWithUpperCase(args);
 
 }
 
