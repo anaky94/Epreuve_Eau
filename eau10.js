@@ -30,22 +30,29 @@ function  getArguments(){
 
 //gestion d'erreur 
 function validateArguments (args){
-    if (args.length ==! 1){
-        console.log("ce script nécéssite un arguments")
-        precess.exit(1);
+    if (args.length !== 2){
+        console.log("ce script nécéssite deux arguments")
+        process.exit(1);
     }
 
-    if (typeof str === 'string'){
-        console.log("l'argument doit être un nombre")
+    //verif
+    if (isNaN(args[0]) || isNaN (args[1])){
+        console.log("vous devez ecrire 2 arguments")
         process.exit(1);
+    }
+
+    //refuse les trings
+    if (typeof(args[0]) || typeof (args[1])){
+        console.log("Erreur l'argument doit être un nombre");
+        process.exit(1)
     }
     
 }
 
 
-//rsolution 
-function digitalSeries() {
-    let max=args[0]
+//resolution 
+function digitalSeries(args) {
+    let max = args[0]
     let min = args[1]
     for(let i = max; i <= min; i++){
         console.log(i)
