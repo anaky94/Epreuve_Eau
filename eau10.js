@@ -36,35 +36,28 @@ function validateArguments (args){
     }
 
     //verif
-    if (isNaN(args[0]) || isNaN (args[1])){
-        console.log("vous devez ecrire 2 arguments")
+    const nums = args.map(Number);
+    if (nums.some(isNaN )){
+        console.error("erreur : arguments doivent être des nombres");
         process.exit(1);
     }
+    return nums;
 
-    //refuse les trings
-    if (typeof(args[0]) || typeof (args[1])){
-        console.log("Erreur l'argument doit être un nombre");
-        process.exit(1)
-    }
-    
 }
 
 
-//resolution 
-function digitalSeries(args) {
-    let max = args[0]
-    let min = args[1]
-    for(let i = max; i <= min; i++){
-        console.log(i)
+//Résolution 
+function digitalSeries(num1, num2) {
+    const [min,max] = [Math.min(num1, num2), Math.max(num1,num2)]
+    for(let i = min; i <= max; i++){
+        console.log(i);
     }
 
 }
 
-//résolution 
-function display (args){
-    args = getArguments();
-    validateArguments(args);
-    digitalSeries(args)
+//affichage
+function display (){
+    digitalSeries(validateArguments(getArguments()));
 }
 
 

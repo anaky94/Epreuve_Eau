@@ -16,3 +16,12 @@
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 // """
+//parsing
+function getArguments(){
+
+}
+
+//gestion d'erreur
+function validateArguments(){
+    
+}
