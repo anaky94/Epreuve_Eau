@@ -16,10 +16,6 @@
 
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
 
-// """
-// # demander a l'utilisateur de rentré un chiffre 
-// # l'utilisateur doit voir affichée toutes les valeurs comprise entre deux nombres dans l'ordre croissant min in clus et max inclus 
-// # faire  une boucle qui aaffiche toute les valeurs entre deux nombre dans l'ordre croissant ou une condition ou les deux 
 
 //parsing
 function  getArguments(){
@@ -57,7 +53,8 @@ function digitalSeries(num1, num2) {
 
 //affichage
 function display (){
-    digitalSeries(validateArguments(getArguments()));
+    const [num1, num2] = validateArguments(getArguments());
+    digitalSeries(num1,num2);
 }
 
 
