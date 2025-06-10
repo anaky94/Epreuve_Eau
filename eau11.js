@@ -18,14 +18,14 @@
 //parsing
 function getArguments(){
     return process.argv.slice(2);
-    const searchElement = args.pop(); 
+    
 
 }
 
 //gestion d'erreur
 function validateArguments(args){
-    if (args.length !== 1){
-        console.log("ce script nécéssite un argument")
+    if (args.length < 1){
+        console.log("ce script nécéssite au moins 2 un arguments")
         process.exit(1);
     }
 
@@ -33,20 +33,32 @@ function validateArguments(args){
 
 
 function findFirstIndex(){
+     const args = getArguments();
     // 1 recupérer tout les arguments 
+    validateArguments(args);
 
+    const searchElement = args.pop();
     // 2 isoler le dernier mot Séparer le tableau et l'élément recherché 
 
     //3 parcourir le tableau 
-    const rechercher = args
-    for (let i = 0; i < tableau.length; i++){
-        
-        if(rechercher < tableau.length){
+
+    for (let i = 0; i < args.length; i++){
+        if (args[i] === searchElement){
             return i; //trouvé 
         }
     }
+    return -1; 
 
 }
+
+//Affichage
+function display(){
+    findFirstIndex();
+
+}
+
+
+display();
 
 
 
