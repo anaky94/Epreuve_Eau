@@ -2,7 +2,7 @@
 // Créez un programme qui affiche le premier index d’un élément recherché dans un tableau. Le tableau est constitué de tous les arguments sauf le dernier. L’élément recherché est le dernier argument. Afficher -1 si l’élément n’est pas trouvé.
 
 // Exemples d’utilisation :
-// $> python exo.py Ceci est le monde qui contient Charlie un homme sympa Charlie
+// $> python exo.py 
 // 6
 
 
@@ -34,14 +34,10 @@ function validateArguments(args){
 
 function findFirstIndex(){
      const args = getArguments();
-    // 1 recupérer tout les arguments 
     validateArguments(args);
 
     const searchElement = args.pop();
-    // 2 isoler le dernier mot Séparer le tableau et l'élément recherché 
-
-    //3 parcourir le tableau 
-
+  
     for (let i = 0; i < args.length; i++){
         if (args[i] === searchElement){
             return i; //trouvé 
@@ -53,7 +49,7 @@ function findFirstIndex(){
 
 //Affichage
 function display(){
-    findFirstIndex();
+    console.log(findFirstIndex());
 
 }
 
