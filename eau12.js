@@ -22,15 +22,37 @@
 //                 i[k], i[j] = i[j], i[k]
             
 
-// print(trie)
-//parsing 
 function getArguments (){
     return process.argv.slice(2);
 }
 
 
-//
+//function
 function displayBetweenTwoElement (){
-    const tabl = porcess.argv[i]
-    for (let i =0;  i <tabl.legnth; i++ )
+    const tabl = porcess.argv
+    for (let i = 0;  i < tabl.legnth; i++ ){
+        for(let j=0; j<tabl.length -i-1; j++){
+            if(tabl[j] > tabl[j+1]) {
+                let temp = tabl[j];
+                tabl[j] = tabl[j+1];
+                tabl[j+1] = temp;
+            }
+        }
+    }
+}
+//gestion d'erreur
+function validateArguments(){
+
+}
+
+
+//affichage
+function display(){
+    const args = getArguments();
+
+    dif (!displayBetweenTwoElement(args)){
+        return 
+    }
+    console.log(displayBetweenTwoElement(args))
+
 }
