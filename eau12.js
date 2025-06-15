@@ -28,8 +28,15 @@ function getArguments (){
 
 
 //function
-function displayBetweenTwoElement (){
-    const tabl = porcess.argv
+function sortElement (arr){
+
+    const tabl = [...arr]; 
+    for (let i=0; i<tabl.length; i++){
+        for (let j = 0; j<tabl.length-i-i; j++){
+            if()
+            if()
+        }
+    }
     for (let i = 0;  i < tabl.legnth; i++ ){
         for(let j=0; j<tabl.length -i-1; j++){
             if(tabl[j] > tabl[j+1]) {
