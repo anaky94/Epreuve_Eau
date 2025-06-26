@@ -13,13 +13,6 @@
 //         afficher le minimum
 // afficher le minimum entre le resulta de l'index 3 et 2 et le result de l'index de l'index 1 et 0 
 
-// def trie():
-//     i = ["-13", "3", "7", "19" ]
-
-//     for k in range(len(i) - i):
-//         for j in range (k +1, len(i)):
-//             if i[k] > i[j]:
-//                 i[k], i[j] = i[j], i[k]
             
 
 function getArguments (){
@@ -28,25 +21,19 @@ function getArguments (){
 
 
 //function
-function sortElement (arr){
+function findSmallestAbsolute (arr){
+ let minAbsolute = Infinity;
 
-    const tabl = [...arr]; 
-    for (let i=0; i<tabl.length; i++){
-        for (let j = 0; j<tabl.length-i-i; j++){
-            if()
-            if()
-        }
-    }
-    for (let i = 0;  i < tabl.legnth; i++ ){
-        for(let j=0; j<tabl.length -i-1; j++){
-            if(tabl[j] > tabl[j+1]) {
-                let temp = tabl[j];
-                tabl[j] = tabl[j+1];
-                tabl[j+1] = temp;
-            }
-        }
-    }
+ for (const num of arr){
+    const absolute = math.abs(num);
+    //a vous de completer la comparaison ici 
+
+
+ }
+
+ return 
 }
+
 //gestion d'erreur
 function validateArguments(){
 
