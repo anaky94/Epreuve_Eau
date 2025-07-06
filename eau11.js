@@ -24,8 +24,8 @@ function getArguments(){
 
 //gestion d'erreur
 function validateArguments(args){
-    if (args.length < 1){
-        console.log("ce script nécéssite au moins 2 un arguments")
+    if (args.length < 2){
+        console.error("Erreur : le script nécéssite au moins 2 un arguments")
         process.exit(1);
     }
 

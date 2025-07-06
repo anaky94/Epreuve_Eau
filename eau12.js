@@ -21,32 +21,44 @@ function getArguments (){
 
 
 //function
-function findSmallestAbsolute (arr){
- let minAbsolute = Infinity;
+function findSpecialValue () {
+    const nombres = getArguments();
+    validateArguments(nombres); // ajout de la validation
+    const tableauTrié = nombres.map(Number).sort((a,b) => a-b);
+    let minDiff = Infinity;
 
- for (const num of arr){
-    const absolute = math.abs(num);
-    //a vous de completer la comparaison ici 
-
-
- }
-
- return 
-}
-
-//gestion d'erreur
-function validateArguments(){
-
-}
-
-
-//affichage
-function display(){
-    const args = getArguments();
-
-    dif (!displayBetweenTwoElement(args)){
-        return 
+    for (let i = 0; i < tableauTrié.length - 1; i++){
+        const diff =  tableauTrié[i+1] - tableauTrié[i];
+        if (diff < minDiff){
+            minDiff = diff
+        }    
     }
-    console.log(displayBetweenTwoElement(args))
-
+    return minDiff
+ 
 }
+
+//Gestion d'erreur
+function validateArguments(args){
+    if (args.length < 2){
+        console.error("ce script nécéssite au moins un 2 arguments");
+        process.exit(1);
+    }
+
+    for (const arg of args){
+        if (isNaN(Number(arg))){
+            console.error(`Erreur  : "${arg}" n'est pas un nombre valide`);
+            process.exit(1);
+        }
+    }
+}
+
+
+// //Affichage
+function display(args){
+    const args = getArguments();
+    validateArguments(args)
+
+    console.log(findSpecialValue());
+}
+
+display();

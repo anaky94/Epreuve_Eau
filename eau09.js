@@ -1,18 +1,4 @@
-// Créez un programme qui détermine si une chaîne de caractères ne contient que des chiffres.
-
-
-// Exemples d’utilisation :
-// $> python exo.py “4445353”
-// true
-// $> python exo.py 42
-// true
-// $> python exo.py “Bonjour 36”
-// false
-
-// Afficher error et quitter le programme en cas de problèmes d’arguments.
-
-
-
+ 
 // Créez un programme qui détermine si une chaîne de caractères ne contient que des chiffres.
 
 // Exemples d’utilisation :
@@ -47,13 +33,10 @@ function validateArguments(args){
     }
     
     if  (typeof str === 'string'){
-        console.error ("l'argument doit un nombre")
+        console.error ("l'argument doit  être un nombre")
         process.exit(1);
     }
 }
-
-//resolution 
-function 
 
 
 //affichage
@@ -61,5 +44,7 @@ function display(args){
     args = getArguments();
     validateArguments(args);
 }
+
+
 
 display();

@@ -31,7 +31,7 @@ function validateArguments (args){
         process.exit(1);
     }
 
-    //verif
+
     const nums = args.map(Number);
     if (nums.some(isNaN )){
         console.error("erreur : arguments doivent être des nombres");
