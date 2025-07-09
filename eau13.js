@@ -17,15 +17,19 @@ function getArguments(){
     return process.argv.slice(2);
 }
 
+
+
+
+
 //function
 function sortList (){
     const nombres = getArguments();
     validateArguments(nombres);
-
+    
     //conversion en nombre 
     const nums = nombres.map(Number)
-
-    for (let j = 0; j < nums.length; j++){
+    
+    for (let i = 0; i < nums.length; i++){
         for( let j = 0; j < nums.length - i - 1; j++){
             if (nums[j] > nums[j+1]){
                 [nums[j], nums[j+1]] = [nums[j+1], nums[j]];
@@ -36,5 +40,28 @@ function sortList (){
 }
 
 
-console.log(sortList())
+//gestion d'erreur 
+function validateArguments (args){
+    if (args.length < 2){
+        console.log("ce script nécéssite au moins un deux arguments ");
+        process.exit(1);
+    }
+    for (const arg of args){
+        if (isNaN(Number(arg))){
+            console.error(`Erreur : "${arg}" n'est pas un nombre Valide`)
+            process.exit(1);
+        }
+    }
 
+}
+
+
+//affichage 
+function display(args){
+    const nombres = getArguments();
+    validateArguments(args);
+    console.log(sortList());
+    
+}
+
+display();

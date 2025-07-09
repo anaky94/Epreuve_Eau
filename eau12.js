@@ -40,7 +40,7 @@ function findSpecialValue () {
 //Gestion d'erreur
 function validateArguments(args){
     if (args.length < 2){
-        console.error("ce script nécéssite au moins un 2 arguments");
+        console.error("ce script nécéssite au moins  deux arguments");
         process.exit(1);
     }
 
@@ -56,7 +56,8 @@ function validateArguments(args){
 // //Affichage
 function display(args){
     const args = getArguments();
-    validateArguments(args)
+    
+    validateArguments(args);
 
     console.log(findSpecialValue());
 }
