@@ -38,13 +38,13 @@ function findSpecialValue () {
 }
 
 //Gestion d'erreur
-function validateArguments(args){
-    if (args.length < 2){
+function validateArguments(arguments){
+    if (arguments.length < 3){
         console.error("ce script nécéssite au moins  deux arguments");
         process.exit(1);
     }
 
-    for (const arg of args){
+    for (const arg of arguments){
         if (isNaN(Number(arg))){
             console.error(`Erreur  : "${arg}" n'est pas un nombre valide`);
             process.exit(1);
@@ -54,10 +54,10 @@ function validateArguments(args){
 
 
 // //Affichage
-function display(args){
+function display(arguments){
     const args = getArguments();
     
-    validateArguments(args);
+    validateArguments(arguments);
 
     console.log(findSpecialValue());
 }
