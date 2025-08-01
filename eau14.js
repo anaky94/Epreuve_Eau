@@ -14,27 +14,40 @@
 
 function getArguments(){
     return process.argv.slice(2);
-
 }
+
+/*
+procédure tri_selection(tableau t)
+      n ← longueur(t) 
+      pour i de 0 à n - 2
+          min ← i       
+          pour j de i + 1 à n - 1
+              si t[j] < t[min], alors min ← j
+          fin pour
+          si min ≠ i, alors échanger t[i] et t[min]
+      fin pour
+  fin procédure
+*/
 
 //function 
 function sortList (){
     const nombres = getArguments();
     // ValidateArguments(nombres);
-
     const nums = nombres.map(Number);
 
-    for(let i = 0; i < nums.length - 1; i++){
-        for(let j = 0; j < nums.length - i - 1; j++){
-            if(nums[j] > nums[j + 1]){
-                [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
+    for (let i = 0; i < nums.length - 1; i++){
+        let minIndex = i; 
+        for(let j = i + 1; j < nums.length; j++){
+            if(nums[j] < nums[minIndex]){
+                minIndex = j;
             }
         }
     }
-    return nums;
+    [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
 }
 
-
+console.log(sortList());
+/*
 //gestion d'erreur 
 function validateArguments (args){
     if(args.length < 3 ){
@@ -66,4 +79,4 @@ function display (){
 }
 
 //Affichage
-display();
+display(); */

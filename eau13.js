@@ -35,38 +35,41 @@ function sortList (){
     }
     return nums;
 }
-console.log(sortList());
+
 
 
 // //Gestion d'erreur 
-// function validateArguments (args) {
-//     if (args.length < 3){
-//         console.log("ce script nécéssite au moins trois arguments ");
-//         process.exit(1);
-//     }
-// }
+function validateArguments (args) {
+    if (args.length < 3){
+        console.log("ce script nécéssite au moins trois arguments ");
+        process.exit(1);
+    }
+}
 
-// function areAllNumbers (args) {
-//     for (const arg of args){
-//         if (arg.trim() ===""|| (isNaN(Number(arg)))){
-//             console.error(`Erreur : "${arg}" n'est pas un nombre Valide`);
-//             console.info("Exemple : node script.js 4 5 12");
-//             process.exit(1);
-//         }
-//     }
-// }
+function areAllNumbers (args) {
+    for (const arg of args){
+        if (arg.trim() ===""|| (isNaN(Number(arg)))){
+            console.error(`Erreur : "${arg}" n'est pas un nombre Valide`);
+            console.info("Exemple : node script.js 4 5 12");
+            process.exit(1);
+        }
+    }
+}
 
 
 // //Résolution
-// function display(){
-//     args = getArguments();
-
-//     if (!validateArguments(args));
-//     if (!areAllNumbers(args));
+function display(){
     
-//     const sorted = sortList(args);
-//     console.log("Resultats triés; ",sorted.join(" "));
-// }
+    args = getArguments();
 
-// //Affichage 
-// display();
+    if (!validateArguments(args));
+    if (!areAllNumbers(args));
+    
+    const sorted = sortList(args);
+    console.log("Resultats triés; ",sorted.join(" "));
+    
+    }
+   
+
+//Affichage 
+display();
