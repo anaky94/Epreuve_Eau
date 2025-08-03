@@ -42,12 +42,13 @@ function sortList (){
                 minIndex = j;
             }
         }
+        [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
     }
-    [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
+    return nums 
 }
 
-console.log(sortList());
-/*
+
+
 //gestion d'erreur 
 function validateArguments (args){
     if(args.length < 3 ){
@@ -60,12 +61,13 @@ function validateArguments (args){
 function areAllNumbers(args) {
     for(const  arg of args){
         if (arg.trim() === ""|| (isNaN(Number(arg)))){
-            console.error(`Erreur : "${arg}" n'est pas un nombre valide`);
+            console.error(`Erreur : ce n'est pas un nombre valide`);
             console.info(" Exemple : node script.js 4 6 12 ");
             process.exit(1);
         }
     }
 }
+
 
 function display (){
     args = getArguments();
@@ -79,4 +81,4 @@ function display (){
 }
 
 //Affichage
-display(); */
+display(); 

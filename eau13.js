@@ -67,7 +67,6 @@ function display(){
     
     const sorted = sortList(args);
     console.log("Resultats triés; ",sorted.join(" "));
-    
     }
    
 
