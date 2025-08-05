@@ -48,7 +48,7 @@ function validateArguments (args){
 
 
 function areAllNumbers(args) {
-    for(const  arg of args){
+    for(const arg of args){
         if (arg.trim() === ""|| (isNaN(Number(arg)))){
             console.error(`Erreur : ce n'est pas un nombre valide`);
             console.info(" Exemple : node script.js 4 6 12 ");

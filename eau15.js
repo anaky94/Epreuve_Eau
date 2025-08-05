@@ -14,27 +14,49 @@ function getArguments(){
     return args; 
 }
 
-//gestion d'erreur 
-// function isValideArguments(){
-//     if (args.length === )
-    
-    
-    
-// }
 
 //résolution 
 function sortTheElements(args){
-    for(let i= 0 ; i < args.length; i++){
-        for (let j= 0; j < args.length - i - 1; j++ ){
-            if (args[j].charCodeAt(0) < args[args.length].charCodeAt(0)){
-            }
-            if (args[j] ==! args[j+1].charCodeAt(0) ){
-                args = j
+    for(let i = 0 ; i < args.length; i++){
+        for (let j = 0; j < args.length - i - 1; j++ ){
+            //comparez les codes ASCII des élément sadjacents 
+            if (args[j].charCodeAt(0) > args[j+1].charCodeAt(0) ){
+                //echangez les éléments si nécessaiez 
+                [args[j], args[j+1]] = [args[j + 1 ], args[j]]; 
 
             }
-            
+
         }
 
-    }
+    } 
+    return args;
 
 }
+
+//gestion d'erreur 
+function validateArguments (args){
+    if(!args || args.length === 0){
+        console.log("erreur: Aucun argument fourni");
+        return [];
+    }
+}
+
+// function areAllNumbers (args){
+//     for (const arg of args){
+//         if(arg.trim() === ""|| (isNaN(Number(arg)))){
+//             console.error("Erreur ce n'est pas un nombre valide");
+//             process.exit(1);
+//         }
+//     }
+// }
+function display (){
+    args = getArguments();
+
+    if (!validateArguments(args));
+    // if (!areAllNumbers(args));
+
+    const sorted =  sortTheElements(args);
+    console.log(sorted.join(""));
+}
+
+display(); 
