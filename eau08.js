@@ -26,27 +26,20 @@ function validateArguments(args) {
         process.exit(1);
     }
 
-    if (typeof str !== 'string'){
-        console.error ("L'argument doit êtr être une chaine de caractères")
-
-    }
-    if (str.trim() === ""){
-        return "";
-    }
 }
 
 //resolution 
 function beginWordWithUpperCase() {
 
-    const separatorRegex = /[\s\t]/; //Detecte les espace et tabulation comme separateur 
+    const separatorRegex = [' ' ,'/t' ,'/n']; //Detecte les espace et tabulation comme separateur 
     const words = str.split(separatorRegex); //separe les chaines en mots
-    
+    let 
     const processeWords = words.map(word => {
         if (!word) return ""; //ignore les mots 
 
         return word.charAt(0).toUpperCase() + word.slice(1).tolowerCase();
     })  
-    return processeWords.join(""); // recombine avec des espaces 
+    return processeWords.join(" "); // recombine avec des espaces 
 }
 
 

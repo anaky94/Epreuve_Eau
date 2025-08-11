@@ -22,19 +22,8 @@ function getArguments() {
 function validateArguments(args){ 
     if(args.length !== 2 ){
         console.error("Erreur");
-        process.exit(1); 
+        return; 
     }
-
-    //vérifier que les arguments ne sont pas vides 
-    if(!args[0] || !args[1]) {
-        console.error("Erreur : les argumenst ne peuvent pas être vide");
-        proces.exit(1);
-    }
-
-    return {
-        fullString : args[0],
-        subString : args[1]
-    };
 } 
 
 //Resolution 
@@ -45,11 +34,19 @@ function resolve() {
     let found = false;
 
     for (let i = 0; i <= fullString.length-subString.length; i++){
+        if (fullString[i] === subString[0]){
+            found=true
+            for (let j = 0; j<subString.length; j++){
+
+            }
+        }
         if(fullString.slice(i, i + subString.length)=== subString){
             found = true;
             break
         }
     }
+
+
 
     console.log(found);
 }
@@ -63,8 +60,6 @@ function display() {
     if (!validateArguments(args)){
         return
     }
-
-    
 }
 //Affichage 
 function display() {

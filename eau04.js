@@ -13,15 +13,22 @@ function getArguments () {
 };
 
 // gestion d'erreur
-function isValideArguments (args) {
-    if (args.length === 0){
-        console.error("ce script nécéssite 1 argument")
-        return false;
-}    
-if (isNaN(args[0])){
+function isValiedArgumentOfNumber (argumentslength){
+
+}
+
+function (stringsNumbeer 
+    if (isNaN(args[0])){
     console.error("l'argument doit être un nombre.")
     return false;
 }
+
+}
+    if (args.length === 0){
+        console.error("ce script nécéssite 1 argument")
+    return false;
+}    
+
 return true;
 }
 

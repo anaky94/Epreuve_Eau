@@ -13,7 +13,7 @@ function getArguments(){
     const args = process.argv.slice(2);
     return args; 
 }
-
+//faire une fonction qui trnasforme chaque chaine de caracter representer en code ascci 
 
 //résolution 
 function sortTheElements(args){
@@ -23,15 +23,12 @@ function sortTheElements(args){
             if (args[j].charCodeAt(0) > args[j+1].charCodeAt(0) ){
                 //echangez les éléments si nécessaiez 
                 [args[j], args[j+1]] = [args[j + 1 ], args[j]]; 
-
             }
-
         }
-
     } 
     return args;
-
 }
+
 
 //gestion d'erreur 
 function validateArguments (args){
@@ -41,14 +38,6 @@ function validateArguments (args){
     }
 }
 
-// function areAllNumbers (args){
-//     for (const arg of args){
-//         if(arg.trim() === ""|| (isNaN(Number(arg)))){
-//             console.error("Erreur ce n'est pas un nombre valide");
-//             process.exit(1);
-//         }
-//     }
-// }
 function display (){
     args = getArguments();
 

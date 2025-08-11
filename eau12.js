@@ -46,7 +46,7 @@ function validateArguments(arguments){
 
     for (const arg of arguments){
         if (isNaN(Number(arg))){
-            console.error(`Erreur  : "${arg}" n'est pas un nombre valide`);
+            console.error(`Erreur : "${arg}" n'est pas un nombre valide`);
             process.exit(1);
         }
     }

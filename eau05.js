@@ -52,7 +52,7 @@ function findNextPrime(number){
     }
 }
 
-// affichage
+// resolution
 function displayNextPrime() {
     const arguments = getArguments();
     if (!isValidArguments(arguments) || (!areAllNumbers(arguments))){

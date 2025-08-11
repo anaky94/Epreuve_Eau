@@ -6,6 +6,12 @@ $> python exo.py
 00 01, 00 02, 00 03, 00 04, ... , 00 99, 01 02, ... , 97 99, 98 99
 $>
 */
+/*
+utiliser les mot de clef return
+condition et boucle c'est un e instruction 
+eviter si possible 
+
+*/
 function getArguments () {
     const args = process.argv.slice(2);
     return args
@@ -20,29 +26,28 @@ function isValideArguments (args) {
     };
 } 
 //Résolution
-function geerateCombin (min=0, max=100) {
+
+function generateCombin () {
+     const args = getArguments();
+ if (!isValideArguments(args)){
+    return undefined
+}
+
     const combinanison = [];
     // validation des paramètres 
-    if (min < 0 || max > 100 || min >= max){
-        console.error("Les paramètres doivent être entre 0 et 99, et min doit être inférieur à max");
-        process.exit();
-    }
-    for (let i = min; i <= max; i++){
+  
+    for (let i = 0; i <= 100; i++){
         for (let j = i + 1; j < max; j++){    
-                    combinanison.push( 
-                        `${i.toString().padStart(2, '0')} ${j.toString().padStart(2, '0')}`);
+            combinanison.push( 
+                `${i.toString().padStart(2, '0')} ${j.toString().padStart(2, '0')}`);
           }
     }
     return combinanison.join(', ');
 }
 //partis 4 affichage
 function display () {
- const args = getArguments();
- if (!isValideArguments(args)){
-    return args
-}
 
- const result = geerateCombin();
+ const result = generateCombin();
  console.log(result);
 }
 display(); 

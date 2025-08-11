@@ -21,36 +21,41 @@ function validateArguments(args) {
         process.exit(1); 
     }
 
-    if (!isNaN(args[0]) && args[0].trim() !== ""){
-        console.error("Erreur les chiffre sont interdit")
-        process.exit(1);
-    }
 }
 
-//Resolution 
-function letterOneOutOfTwo() {
-    const firstArgument = args[0];
-    let compteur = []; 
+//utilitaire  
+function letterOneOutOfTwo(strings) {
     
-    for (let i = 0; i < firstArgument.length; i++){
-        const letter = mot[i];
+    let finalString = ""; 
+    
+    for (let i = 0; i < strings.length; i++){
+        const letter = strings[i];
         if ( i % 2 === 0 ){
-            compteur.push(letter.toUpperCase())
+            finalString += (letter.toUpperCase())
         } else {
-            compteur.push (letter.toLowerCase())
+            finalString += (letter.toLowerCase())
         }
     }
 
-    console.log(resultat.join("" ))  
+    return finalString
 }
 
+
+function toUppercase (char){
+    return char.chartAt((chartCodeAt(char) - 32))
     
-// Affichage 
-function display() {
+}
+    
+// Resolution 
+function displaystringdUpper() {
     const args = getArguments();
-    validateArguments(args);
-    letterOneOutOfTwo(args);
+    if (!validateArguments(args)){
+        return
+    };
+
+
+    const string = letterOneOutOfTwo(args)
 
 } 
-
+//Affichage
 display();

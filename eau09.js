@@ -17,6 +17,8 @@ function getArguments(){
     return process.argv.slice(2);
 }
 
+
+
 //Gestion d'erreur
 function validateArguments(args){
     if (args.length ==! 1){
@@ -38,7 +40,12 @@ function validateArguments(args){
     }
 }
 
+function isNumeric(stringNumber){
+    for (const char of stringNumber){
+        
+    }
 
+}
 //affichage
 function display(args){
     args = getArguments();

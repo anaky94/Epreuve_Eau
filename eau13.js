@@ -21,7 +21,6 @@ function getArguments(){
 //function
 function sortList (){
     const nombres = getArguments();
-    validateArguments(nombres);
     
     //conversion en nombre 
     const nums = nombres.map(Number)

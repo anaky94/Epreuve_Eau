@@ -13,66 +13,65 @@ Bonjour 36
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 
  */
+
 //parsing
 
-function getArgument () {
-    const args = process.argv.slice(2);
-    return args;
+/*
+ESSAIS DE garder les appplation des fonction cohérent 
+
+
+
+
+*/
+
+
+function getArguments () {
+    const arguments = process.argv.slice(2);
+    return arguments;
 }
 
 // Gestion d'erreur 
-function isValideArguments (args) {
-    if (args.length >= 2) {
-        return true;
-    }else {
+function isValidArguments(arguments) {
+    if (args.length < 2) {
         console.error("ce script nécessite minimum 2 arguments");
         return false;
-
     }
+    return true
 }
 
-// résolution
-function resolve () {
-    const args = process.argv.slice(2);//recupération des arguments
-
-    if(!isValideArguments(args)){//vérification des arguments 
-        return;
+function getReversedStrings(strings) { //la function renverse la chaine de caractère
+    const getReversedStrings = [];
+    for (let i = strings.length - 1; i >= 0; i--){
+        getReversedStrings.push(strings[i]);
     }
-
-    const reverseArgs = [];
-    for (let i = args.length - 1; i >= 0; i--){
-        reverseArgs.push(args[i]);
-    }
-    return reverseArgs;
+    return getReversedStrings;
 }
 
-// resolve();
+// Résolution
+function displayReversedArguments() {
 
-//Afficher le resultat
-function display() {
-    const args = getArgument();
-    if (!isValideArguments(args)){
-        return;
-    }
+  const arguments = getArguments();
 
-    const result = resolve();
-    if (result) {
-        console.log(result.join(" "));
+  if (!isValidArguments(arguments)){
+    return
+  }
 
-    }
+  const  reversedArguments = getReversedStrings(arguments) 
+  
+  return reversedArguments
+
 }
-display();
+
+function displayArray(array){
+    for(const element of array){
+        console.log(element)
+    }
+
+}
+
+displayArray(getReversedStrings())
 
 
 
-// function secnAray (){
-//     const array = ["je ", "suis", "drole","et"]
-//     const Newarray =[];
-//     for( let i=array.length-1; i>=0; i-- ){
-//         Newarray.push(array[i]);
-//         console.log(Newarray.join(', '));
-//     }
 
-// }
 
-// secnAray(); 

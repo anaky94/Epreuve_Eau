@@ -49,12 +49,15 @@ function digitalSeries(num1, num2) {
         console.log(i);
     }
 
+    retrun 
+
 }
 
-//affichage
+//Affichage
 function display (){
     const [num1, num2] = validateArguments(getArguments());
     digitalSeries(num1,num2);
+    return
 }
 
 
