@@ -9,26 +9,30 @@
 
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
 
-//parsing 
-function getArguments() {
-    return process.argv.slice(2);  
+//Parsing 
+function getArguments(){
+    const arguments = process.argv.slice(2)
+    return arguments;
 }
 
-//gestion d'erreur
-function validateArguments(args) {
-    if (args.length ==! 1){
+//Gestion d'erreur
+function validateArguments(arguments) {
+    if (arguments.length !== 1){
         console.error("ce script nécéssite un arguments")
-        process.exit(1);
+        return false;
     }
-
-    if (!isNaN(args[0]) && args[0].trim() !==""){
-        console.error("error");
-        process.exit(1);
-    }
-
+    return true
 }
 
-//resolution 
+function validateArgumentsNotNumber() {
+    if (!isNaN(parseFloat(args[0]))) {
+        console.error("Error")
+        return false
+    }
+    return true
+}
+
+//Utilitaires
 function beginWordWithUpperCase() {
 
     const separatorRegex = [' ' ,'/t' ,'/n']; //Detecte les espace et tabulation comme separateur 
@@ -42,6 +46,10 @@ function beginWordWithUpperCase() {
     return processeWords.join(" "); // recombine avec des espaces 
 }
 
+
+//Resolution 
+
+function 
 
 //Display
 function display(){

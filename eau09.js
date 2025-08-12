@@ -12,46 +12,57 @@
 
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
 
+//Utilitaires 
+function isNumber(str) {
+    if (str.startsWith('-')){
+        str = str.substring(1)
+
+    }
+
+    let compteur = 0;
+    for (let i=0; i < str.length; i++){
+        if(parseInt(str[i])) {
+            compteur++
+        }
+
+        return str.length > 0; 
+    }
+
+    if (compteur ===str.length){
+        return true
+    }else {
+        return false
+    }
+}
+
 //Parsing
 function getArguments(){
-    return process.argv.slice(2);
+    const arguments = process.argv.slice(2)
+    return arguments;
 }
-
-
 
 //Gestion d'erreur
-function validateArguments(args){
-    if (args.length ==! 1){
-        console.error ("ce script nécéssite un agruments")
-        process.exit(1);
-
+function isValidArguments (arguments){
+    if (arguments.length < 1){
+        console.error ("ce scrpipt nécéssite un argurment")
+        return false
     }
+    return true 
+}
+
+//Resolution 
+function chekIfNumber(arguments) {
+    return isNumber(arguments[0])   
+}
+
+//Afficher le resultat 
+function displayResult() {
+    const arguments = getArguments()
+    if (!isValidArguments(arguments))
+        return 
     
-    if (!isNaN(args[0]) && args[0].trim() !==""){
-        console.log("true");
-        
-    } else {
-        console.log("false")
-    }
-    
-    if  (typeof str === 'string'){
-        console.error ("l'argument doit  être un nombre")
-        process.exit(1);
-    }
+    const isNum = chekIfNumber(arguments)
+    console.log(isNum)
 }
-
-function isNumeric(stringNumber){
-    for (const char of stringNumber){
-        
-    }
-
-}
-//affichage
-function display(args){
-    args = getArguments();
-    validateArguments(args);
-}
-
-
-
-display();
+displayResult()
+  

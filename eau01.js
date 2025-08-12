@@ -45,6 +45,7 @@ function getcumbin(){
     }
     return result.join(' , ');
 }// la solution c'est d'edexer k / j 
+
 //Résolution
 function CreatCombin() {
     const args = getArguments(); // récupération des arguments
