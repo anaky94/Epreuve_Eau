@@ -20,7 +20,7 @@ function sortTheElements(args){
     for(let i = 0 ; i < args.length; i++){
         for (let j = 0; j < args.length - i - 1; j++ ){
             //comparez les codes ASCII des élément sadjacents 
-            if (args[j].charCodeAt(0) > args[j+1].charCodeAt(0) ){
+            if (args[j].charCodeAt(0) > args[j+1].charCodeAt(0)){
                 //echangez les éléments si nécessaiez 
                 [args[j], args[j+1]] = [args[j + 1 ], args[j]]; 
             }

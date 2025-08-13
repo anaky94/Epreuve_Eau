@@ -12,25 +12,18 @@ $> python exo.py “Bonjour 36”
 Bonjour 36
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 
- */
-
-//parsing
-
-/*
-ESSAIS DE garder les appplation des fonction cohérent 
-
-
-
-
 */
 
 
+
+
+//Parsing
 function getArguments () {
     const arguments = process.argv.slice(2);
     return arguments;
 }
 
-// Gestion d'erreur 
+//Gestion d'erreur 
 function isValidArguments(arguments) {
     if (args.length < 2) {
         console.error("ce script nécessite minimum 2 arguments");
@@ -47,7 +40,7 @@ function getReversedStrings(strings) { //la function renverse la chaine de carac
     return getReversedStrings;
 }
 
-// Résolution
+//Résolution
 function displayReversedArguments() {
 
   const arguments = getArguments();

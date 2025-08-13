@@ -7,53 +7,67 @@ $>
 
 Afficher -1 si le paramètre est négatif ou mauvais.
 */
+
+
+//Parsing
 function getArguments () {
-    const args = process.argv.slice(2);
-    return args;
-};
-
-// gestion d'erreur
-function isValiedArgumentOfNumber (argumentslength){
-
+    const arguments = process.argv.slice(2);
+    return arguments;
 }
 
-function (stringsNumbeer 
-    if (isNaN(args[0])){
+//Gestion d'erreur
+function isValidArguments (arguments) { 
+    const num = Number(arguments[0])
+    if (isNaN(num)){
     console.error("l'argument doit être un nombre.")
     return false;
 }
+    if (num < 0 ){
+        console.error("l'argument doit être un nombre positif. ")
+        return false
+    }
+    return true 
+} 
 
+function validArgumentLength(arguments) {
+    if (arguments.length < 1){
+        console.error("Ce script nécessite 1 argument.")
+        return false
+    }
+    return true; 
 }
-    if (args.length === 0){
-        console.error("ce script nécéssite 1 argument")
-    return false;
-}    
 
-return true;
-}
 
-//resolution 
-function fibonacci (n) { 
+
+//Utilitaire
+function fibonacci(index) {
     let a = 0,  b = 1;
-    for (let i = 2; i <= n; i++){
+    for (let i = 2; i <= index; i++){
         let c = a + b;
         a = b;
         b = c;
     }
     return b; 
-};
+}
 
-// afficher les resultats 
-function display () {
+// Resolution 
+function chekIfFibonacci(arguments){
+    return fibonacci(arguments[0])
+}
+
+
+// Afficher les resultats 
+function display() {
     const args = getArguments();
-    if (!isValideArguments (args)){
+    if (!isValidArguments(args)){
         return;
     }
-    // console.log("suite de Fibonacci: ");
-    // for (let i=0; i<=n; i++){
-        //}
-    const n = Number(args[0]);
+    if (!validArgumentLength){
+        return;
+    }
+  
+    const index = Number(args[0]);
 
-    console.log(`${fibonacci(n)}`);
+    console.log(fibonacci(index));
 }
 display();

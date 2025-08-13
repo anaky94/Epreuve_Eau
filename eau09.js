@@ -28,7 +28,7 @@ function isNumber(str) {
         return str.length > 0; 
     }
 
-    if (compteur ===str.length){
+    if (compteur === str.length){
         return true
     }else {
         return false

@@ -43,7 +43,7 @@ function getReversedArguments() {
 function displayArray(array) {
     for (const element of array) {
         console.log(element);
-    }  return y 
+    }  return 
 
 }
 

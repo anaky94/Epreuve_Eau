@@ -15,14 +15,14 @@ $>
 */
 
 //Parsing 
-function getArguments () {
-    const args = process.argv.slice(2);
-    return args;
+function getArguments() {
+    const arguments = process.argv.slice(2);
+    return arguments;
 };
 
-//gestion d'erreur 
-function isValideArguments (args) {
-    if (args.length === 0){ 
+//Gestion d'erreur 
+function isValideArguments(arguments) {
+    if (arguments.length === 0){ 
         return true;
     } else {
         console.error("Ce script ne nécessite pas d'arguments");
@@ -30,36 +30,33 @@ function isValideArguments (args) {
     };
 }
 
-function getcumbin(){
-     let result = [];
-    for ( let i = 0; i <= 9; i++){
-        for ( let j = i + 1; j <= 9; j++){
+//Utilitise
+function getCumbin() {
+    let result = [];
+    for ( let i = 0; i <= 7; i++){
+        for ( let j = i + 1; j <= 8; j++){
             for ( let k = j + 1; k <= 9; k++){
-                if (i ===7 && j===8 && k ===9){
-                    result += `${i}${j}${k} `;
-                }else
-
-                result +=
+                 result.push (`${i}${j}${k}`)
             }
         }
     }
     return result.join(' , ');
-}// la solution c'est d'edexer k / j 
+}
 
 //Résolution
 function CreatCombin() {
-    const args = getArguments(); // récupération des arguments
-    if (!isValideArguments(args)){//vérifis si les arguments sont invalide 
+const arguments = getArguments(); // récupération des arguments
+    if (!isValideArguments(arguments)){//vérifis si les arguments sont invalide 
         return; // si invalide, arrête l'éxecution
     }
    
 }
-//partis 4 affichage :
+//Affichage :
 function displayCombin() {
     
     //si les arguments sont valides (aucun argument dans ce cas,) execute combine
-    const result = combin();
+    const result = getCumbin();
     console.log(result); //affichage
 };
 
-display();
+displayCombin();
