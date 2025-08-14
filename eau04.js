@@ -23,7 +23,7 @@ function isValidArguments (arguments) {
     return false;
 }
     if (num < 0 ){
-        console.error("l'argument doit être un nombre positif. ")
+        console.error(-1)
         return false
     }
     return true 

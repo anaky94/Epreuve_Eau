@@ -14,9 +14,6 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 */
 
-
-
-
 //Parsing
 function getArguments () {
     const arguments = process.argv.slice(2);
@@ -25,19 +22,21 @@ function getArguments () {
 
 //Gestion d'erreur 
 function isValidArguments(arguments) {
-    if (args.length < 2) {
-        console.error("ce script nécessite minimum 2 arguments");
+    if (arguments.length < 2) {
+        console.error("ce script nécessite minimum deux arguments");
         return false;
     }
     return true
 }
 
+
+
 function getReversedStrings(strings) { //la function renverse la chaine de caractère
-    const getReversedStrings = [];
+    const reversedArray = [];
     for (let i = strings.length - 1; i >= 0; i--){
         getReversedStrings.push(strings[i]);
     }
-    return getReversedStrings;
+    return reversedArray ;
 }
 
 //Résolution
@@ -50,7 +49,6 @@ function displayReversedArguments() {
   }
 
   const  reversedArguments = getReversedStrings(arguments) 
-  
   return reversedArguments
 
 }
@@ -59,7 +57,6 @@ function displayArray(array){
     for(const element of array){
         console.log(element)
     }
-
 }
 
 displayArray(getReversedStrings())

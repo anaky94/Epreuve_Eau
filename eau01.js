@@ -53,7 +53,6 @@ const arguments = getArguments(); // récupération des arguments
 }
 //Affichage :
 function displayCombin() {
-    
     //si les arguments sont valides (aucun argument dans ce cas,) execute combine
     const result = getCumbin();
     console.log(result); //affichage
