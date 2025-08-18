@@ -24,7 +24,7 @@ function  getArguments(){
 }
 
 
-//gestion d'erreur 
+//Gestion d'erreur 
 function validateArguments (args){
     if (args.length !== 2){
         console.log("ce script nécéssite deux arguments")

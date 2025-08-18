@@ -47,10 +47,6 @@ function beginWordWithUpperCase() {
 }
 
 
-//Resolution 
-
-function 
-
 //Display
 function display() {
     const args = getArguments();

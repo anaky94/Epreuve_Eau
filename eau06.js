@@ -11,8 +11,6 @@ error
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 */
 
-/* 
- */
 // le parsing
 function getArguments() {
     return process.argv.slice(2); 
@@ -37,7 +35,6 @@ function resolve() {
         if (fullString[i] === subString[0]){
             found=true
             for (let j = 0; j<subString.length; j++){
-
             }
         }
         if(fullString.slice(i, i + subString.length)=== subString){
@@ -45,9 +42,6 @@ function resolve() {
             break
         }
     }
-
-
-
     console.log(found);
 }
 

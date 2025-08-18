@@ -23,7 +23,7 @@ function validateArguments(args) {
 
 }
 
-//utilitaire  
+//Utilitaire   
 function letterOneOutOfTwo(strings) {
     
     let finalString = ""; 
@@ -36,26 +36,23 @@ function letterOneOutOfTwo(strings) {
             finalString += (letter.toLowerCase())
         }
     }
-
     return finalString
 }
 
-
+//Resolution 
 function toUppercase (char){
     return char.chartAt((chartCodeAt(char) - 32))
     
 }
     
-// Resolution 
+//Resolution 
 function displaystringdUpper() {
     const args = getArguments();
     if (!validateArguments(args)){
         return
-    };
-
-
+    }
     const string = letterOneOutOfTwo(args)
-
+    console.log(string)
 } 
 //Affichage
-display();
+displaystringdUpper()

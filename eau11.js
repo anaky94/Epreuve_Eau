@@ -14,7 +14,7 @@
 
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
 
-// """
+
 //parsing
 function getArguments(){
     return process.argv.slice(2);
@@ -22,7 +22,7 @@ function getArguments(){
 
 }
 
-//gestion d'erreur
+//Gestion d'erreur
 function validateArguments(args){
     if (args.length < 2){
         console.error("Erreur : le script nécéssite au moins 2 un arguments")
@@ -52,7 +52,6 @@ function display(){
     console.log(findFirstIndex());
 
 }
-
 
 display();
 

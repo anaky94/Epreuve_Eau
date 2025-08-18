@@ -14,13 +14,13 @@
 // afficher le minimum entre le resulta de l'index 3 et 2 et le result de l'index de l'index 1 et 0 
 
             
-
+//Parsing
 function getArguments (){
     return process.argv.slice(2);
 }
 
 
-//function
+//Foncction
 function findSpecialValue () {
     const nombres = getArguments();
     validateArguments(nombres); // ajout de la validation
@@ -53,7 +53,7 @@ function validateArguments(arguments){
 }
 
 
-// //Affichage
+//Affichage
 function display(arguments){
     const args = getArguments();
     

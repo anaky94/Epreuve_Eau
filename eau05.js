@@ -12,7 +12,7 @@ function getArguments() {
     return arguments;
 }
 
-//gestiond'erreur
+//Gestiond'erreur
 
 function isValidArguments(arguments) { 
     if (arguments.length <= 0 && arguments.length  > 1) {
@@ -32,13 +32,14 @@ function areAllNumbers (arguments){
     return true;
 }
 
-// resolution 
+//Resolution 
 function isPrime(number) {
     if (number <= 1) return false;
     for (let i = 2; i <= Math.sqrt(number); i++){
-        if  ( number % i === 0 ) return false;        
+        if  ( number % i === 0 ) 
+         return false;        
     }
-    return true; //n ets premier
+    return true;
 }
 
 //trouver le premier nombre sup à n 

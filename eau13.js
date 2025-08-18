@@ -12,13 +12,15 @@
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
 // Wikipedia vous présentera une belle description de cet algorithme de tri.
 
-
+//Parsing
 function getArguments(){
-    return process.argv.slice(2);
+    const arguments = process.argv.slice(2);
+    return arguments 
+
 }
 
 
-//function
+//Utilitises 
 function sortList (){
     const nombres = getArguments();
     
@@ -36,10 +38,9 @@ function sortList (){
 }
 
 
-
-// //Gestion d'erreur 
-function validateArguments (args) {
-    if (args.length < 3){
+ //Gestion d'erreur 
+function validateArguments (arguments) {
+    if (arguments.length < 3){
         console.log("ce script nécéssite au moins trois arguments ");
         process.exit(1);
     }
@@ -55,8 +56,15 @@ function areAllNumbers (args) {
     }
 }
 
+//Résolution 
+function getArgumentsSortlist() {
+    const arguments = getArguments()
+    
+    const 
 
-// //Résolution
+}
+
+//Affichage 
 function display(){
     
     args = getArguments();
@@ -69,5 +77,5 @@ function display(){
     }
    
 
-//Affichage 
+
 display();
