@@ -12,6 +12,12 @@
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
 // Wikipedia vous présentera une belle description de cet algorithme de tri.
 
+
+// Revoire la fonction sortList() mettre un arguments 
+// Revoir la finction display() mettre un arguments aussi 
+// Mettre un systeme pour convertis les chaines de caractère en nombre 
+
+
 //Parsing
 function getArguments(){
     const arguments = process.argv.slice(2);
@@ -21,37 +27,34 @@ function getArguments(){
 
 
 //Utilitises 
-function sortList (){
-    const nombres = getArguments();
+function sortList(numberOfList) {
     
-    //conversion en nombre 
-    const nums = nombres.map(Number)
-    
-    for (let i = 0; i < nums.length; i++){
-        for( let j = 0; j < nums.length - i - 1; j++){
-            if (nums[j] > nums[j+1]){
-                [nums[j], nums[j+1]] = [nums[j+1], nums[j]];
+    for (let i = 0; i < numberOfList.length; i++){
+        for( let j = 0; j < numberOfList.length - i - 1; j++){
+            if (numberOfList[j] > numberOfList[j+1]){
+                [numberOfList[j], numberOfList[j+1]] = [numberOfList[j+1], numberOfList[j]];
             }
         }   
     }
-    return nums;
+    return sortList
 }
 
 
  //Gestion d'erreur 
-function validateArguments (arguments) {
-    if (arguments.length < 3){
+function validateArguments (validArgumentsLength) {
+    if (!validArgumentsLength){
         console.log("ce script nécéssite au moins trois arguments ");
-        process.exit(1);
+        return false
     }
+    return true 
 }
 
-function areAllNumbers (args) {
-    for (const arg of args){
+function areAllNumbers (arguments) {
+    for (const arg of arguments){
         if (arg.trim() ===""|| (isNaN(Number(arg)))){
             console.error(`Erreur : "${arg}" n'est pas un nombre Valide`);
             console.info("Exemple : node script.js 4 5 12");
-            process.exit(1);
+            return 
         }
     }
 }
@@ -60,14 +63,20 @@ function areAllNumbers (args) {
 function getArgumentsSortlist() {
     const arguments = getArguments()
     
-    const 
+    const validArgumentsLength = arguments.length > 3
+
+    if (!isValidArguments(validArgumentsLength)){
+        return
+    }
+
+    const argumentsSortlist = sortList(arguments)
+
+    return argumentsSortlist
 
 }
 
-//Affichage 
+//Afficher le resultat 
 function display(){
-    
-    args = getArguments();
 
     if (!validateArguments(args));
     if (!areAllNumbers(args));
