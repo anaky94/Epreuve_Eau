@@ -28,11 +28,11 @@ function getArguments(){
 
 //Utilitises 
 function sortList(numberOfList) {
-    
+    const sortList = []
     for (let i = 0; i < numberOfList.length; i++){
         for( let j = 0; j < numberOfList.length - i - 1; j++){
             if (numberOfList[j] > numberOfList[j+1]){
-                [numberOfList[j], numberOfList[j+1]] = [numberOfList[j+1], numberOfList[j]];
+                [numberOfList[j], numberOfList[j+1]] = [numberOfList[j+1], numberOfList[j]]
             }
         }   
     }
@@ -41,7 +41,7 @@ function sortList(numberOfList) {
 
 
  //Gestion d'erreur 
-function validateArguments (validArgumentsLength) {
+function isvalidArguments (validArgumentsLength) {
     if (!validArgumentsLength){
         console.log("ce script nécéssite au moins trois arguments ");
         return false
@@ -49,42 +49,44 @@ function validateArguments (validArgumentsLength) {
     return true 
 }
 
-function areAllNumbers (arguments) {
-    for (const arg of arguments){
-        if (arg.trim() ===""|| (isNaN(Number(arg)))){
-            console.error(`Erreur : "${arg}" n'est pas un nombre Valide`);
+function hasInvalidNumbers (validArguments) {
+    for (const argument of validArguments){
+        if (argument.trim() === "" || isNaN(Number(argument))){
+            console.error(`Erreur : "${argument}" n'est pas un nombre Valide`);
             console.info("Exemple : node script.js 4 5 12");
-            return 
-        }
-    }
+            return true // <-- quand ya une erreur 
+
+        } 
+        
+    } return false // <-- quand c'est vrai 
 }
 
 //Résolution 
 function getArgumentsSortlist() {
     const arguments = getArguments()
     
-    const validArgumentsLength = arguments.length > 3
+    const validArgumentsLength = arguments.length >= 3
 
-    if (!isValidArguments(validArgumentsLength)){
+    const validArguments = arguments
+
+    if (!isvalidArguments(validArgumentsLength)){
         return
+    }
+    if (!hasInvalidNumbers(validArguments)){
+        return 
     }
 
     const argumentsSortlist = sortList(arguments)
-
     return argumentsSortlist
 
 }
 
 //Afficher le resultat 
-function display(){
-
-    if (!validateArguments(args));
-    if (!areAllNumbers(args));
-    
-    const sorted = sortList(args);
-    console.log("Resultats triés; ",sorted.join(" "));
+function displayArray(array){
+    for (const elements of array){
+        console.log(elements)
     }
-   
+}
 
 
-display();
+displayArray(getArgumentsSortlist)
