@@ -28,15 +28,16 @@ function getArguments(){
 
 //Utilitises 
 function sortList(numberOfList) {
-    const sortList = []
-    for (let i = 0; i < numberOfList.length; i++){
-        for( let j = 0; j < numberOfList.length - i - 1; j++){
-            if (numberOfList[j] > numberOfList[j+1]){
-                [numberOfList[j], numberOfList[j+1]] = [numberOfList[j+1], numberOfList[j]]
+    const sortedArray = numberOfList.map(Number)
+
+    for (let i = 0; i < sortedArray.length; i++){
+        for( let j = 0; j < sortedArray.length - i - 1; j++){
+            if (sortedArray[j] > sortedArray[j+1]){
+                [sortedArray[j], sortedArray[j+1]] = [sortedArray[j+1], sortedArray[j]]
             }
         }   
     }
-    return sortList
+    return sortedArray
 }
 
 
@@ -72,21 +73,23 @@ function getArgumentsSortlist() {
     if (!isvalidArguments(validArgumentsLength)){
         return
     }
-    if (!hasInvalidNumbers(validArguments)){
+    if (hasInvalidNumbers(validArguments)){
         return 
     }
 
-    const argumentsSortlist = sortList(arguments)
-    return argumentsSortlist
-
+    
+    return sortList(arguments)
+ 
 }
 
 //Afficher le resultat 
 function displayArray(array){
-    for (const elements of array){
-        console.log(elements)
+    if (!array) return
+
+    for (const element of array){
+        console.log(element)
     }
 }
 
 
-displayArray(getArgumentsSortlist)
+displayArray(getArgumentsSortlist())

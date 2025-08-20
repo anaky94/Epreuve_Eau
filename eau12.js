@@ -16,13 +16,15 @@
             
 //Parsing
 function getArguments (){
-    return process.argv.slice(2);
+    const arguments = process.argv.slice(2);
+    return arguments 
 }
 
 
-//Foncction
-function findSpecialValue () {
-    const nombres = getArguments();
+//Utilitises
+function findSpecialValue (Mindestunterschied) {
+    const smallNumber = Mindestunterschied.map(Number)
+
     validateArguments(nombres); // ajout de la validation
     const tableauTrié = nombres.map(Number).sort((a,b) => a-b);
     let minDiff = Infinity;
