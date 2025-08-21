@@ -44,7 +44,7 @@ function sortList(numberOfList) {
  //Gestion d'erreur 
 function isvalidArguments (validArgumentsLength) {
     if (!validArgumentsLength){
-        console.log("ce script nécéssite au moins trois arguments ");
+        console.error("ce script nécéssite au moins trois arguments ");
         return false
     }
     return true 
@@ -58,7 +58,6 @@ function hasInvalidNumbers (validArguments) {
             return true // <-- quand ya une erreur 
 
         } 
-        
     } return false // <-- quand c'est vrai 
 }
 
@@ -83,7 +82,7 @@ function getArgumentsSortlist() {
 }
 
 //Afficher le resultat 
-function displayArray(array){
+function displayArray(array) {
     if (!array) return
 
     for (const element of array){

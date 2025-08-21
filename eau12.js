@@ -15,7 +15,7 @@
 
             
 //Parsing
-function getArguments (){
+function getArguments() {
     const arguments = process.argv.slice(2);
     return arguments 
 }
@@ -23,45 +23,63 @@ function getArguments (){
 
 //Utilitises
 function findSpecialValue (Mindestunterschied) {
-    const smallNumber = Mindestunterschied.map(Number)
+    const smallNumber = Mindestunterschied.map(Number).sort(a,b =>a-b)
+    const minDiff = Infinity
 
-    validateArguments(nombres); // ajout de la validation
-    const tableauTrié = nombres.map(Number).sort((a,b) => a-b);
-    let minDiff = Infinity;
-
-    for (let i = 0; i < tableauTrié.length - 1; i++){
-        const diff =  tableauTrié[i+1] - tableauTrié[i];
+    for (let i = 0; i < smallNumber.length - 1; i++){
+        const diff =  smallNumber[i+1] - smallNumber[i];
         if (diff < minDiff){
             minDiff = diff
         }    
     }
-    return minDiff
- 
+    return smallNumber
 }
 
 //Gestion d'erreur
-function validateArguments(arguments){
-    if (arguments.length < 3){
+function validateArguments(validArgumentsLength){
+    if (!validArgumentsLength){
         console.error("ce script nécéssite au moins  deux arguments");
-        process.exit(1);
+        return false
     }
-
-    for (const arg of arguments){
-        if (isNaN(Number(arg))){
-            console.error(`Erreur : "${arg}" n'est pas un nombre valide`);
-            process.exit(1);
-        }
-    }
+    return true 
 }
 
+function hasInvalidNumbers (validArguments){
+    for (const argument of validArguments){
+        if (argument.trim() === "" || isNaN(Number(argument))){
+            console.error(`Erreur : "${arguments}" n'est pas un nombre valide`)
+            console.info("Exemple : node script.js 4 5 12");
+            return true
+        }
+    } return false
+}
+
+
+//Resolution 
+function getArgumentsSpecialValue() {
+    const arguments = getArguments()
+
+    const validArgumentsLength = arguments.length >= 3
+
+    const validArguments = arguments
+
+    if(!isvalidArguments(validArgumentsLength)){
+        return
+    }
+    if(hasInvalidNumbers(validArguments)){
+        return 
+    }
+
+    return  findSpecialValue(arguments)
+}
 
 //Affichage
-function display(arguments){
-    const args = getArguments();
-    
-    validateArguments(arguments);
+function displayArray(array) {
+    if (!array) return 
 
-    console.log(findSpecialValue());
+    for (const element of array){
+        console.log(element)
+    }
 }
 
-display();
+displayArray(getArgumentsSpecialValue())
