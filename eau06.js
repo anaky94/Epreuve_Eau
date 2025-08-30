@@ -11,20 +11,38 @@ error
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 */
 
-// le parsing
+//le parsing
 function getArguments() {
-    return process.argv.slice(2); 
+    const arguments = process.argv.slice(2);
+    return arguments 
 }
 
-//la Gestion d'erreur
-function validateArguments(args){ 
-    if(args.length !== 2 ){
-        console.error("Erreur");
-        return; 
+//Gestion d'erreur
+function isValidateArguments(arguments) { 
+    if (arguments.length !== 2 ){
+        console.error("Erreur")
+        return false
     }
+    return true
 } 
+/* à faire pour la prochaine fois 
 
-//Resolution 
+***vérifier tous les arguments pas seulement le 1er
+***utiliser un e boucle pour traiter plusieurs
+***utilisier "typeof" pour une vérification plus précise
+
+*/
+function validateArgumentsNotNumber() {
+    if (!isNaN(Number(arguments))){
+        console.error("Error")
+        return false
+    }
+    return true
+}
+
+console.log(validateArgumentsNotNumber())
+
+/* //Utilitises 
 function resolve() {
     const args = getArguments();
     const {fullString, subString} = validateArguments(args);
@@ -46,6 +64,8 @@ function resolve() {
 }
 
 
+//Resolution 
+
 
 
 //Affichage 
@@ -59,5 +79,5 @@ function display() {
 function display() {
 }
 
-
+ */
 

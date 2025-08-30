@@ -38,7 +38,7 @@ function sortList (){
 
 
 
-//gestion d'erreur 
+//Gestion d'erreur 
 function validateArguments (args){
     if(args.length < 3 ){
         console.log("ce script nécéssite au moins trois arguments ");

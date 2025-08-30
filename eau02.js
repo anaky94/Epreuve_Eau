@@ -5,12 +5,6 @@ $> python exo.py
 $>
 */
 
-//Parsing 
-function getArguments() {
-    const arguments = process.argv.slice(2);
-    return arguments
-}
-
 //Gestion d'erreur : 
 function isValideArguments (arguments) {
     if (arguments.length === 0){
@@ -35,15 +29,14 @@ function getCumbin() {
 
 //Résolution
 function CreatCumbin() {
-    const arguments = getArguments()
     if (!isValideArguments(arguments)){
         return
     }    
 }
 
 //Affichage
-function display () {
+function display() {
  const result = getCumbin();
  console.log(result);
 }
-display(); 
+display()

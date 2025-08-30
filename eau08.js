@@ -8,8 +8,8 @@
 // error
 
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
-//Parsing 
 
+//Parsing 
 function getArguments(){
     const arguments = process.argv.slice(2)
     return arguments;
@@ -46,6 +46,7 @@ function beginWordWithUpperCase() {
     return processeWords.join(" "); // recombine avec des espaces 
 }
 
+//Resolution 
 
 //Display
 function display() {

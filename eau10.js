@@ -42,7 +42,7 @@ function validateArguments (args){
 }
 
 
-//Résolution 
+
 function digitalSeries(num1, num2) {
     const [min,max] = [Math.min(num1, num2), Math.max(num1,num2)]
     for(let i = min; i <= max; i++){
@@ -53,12 +53,15 @@ function digitalSeries(num1, num2) {
 
 }
 
+//Résolution 
+
+
 //Affichage
-function display (){
+function displayDigitalSeries() {
     const [num1, num2] = validateArguments(getArguments());
     digitalSeries(num1,num2);
     return
 }
 
 
-display();
+displayDigitalSeries();

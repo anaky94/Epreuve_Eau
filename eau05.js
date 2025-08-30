@@ -13,7 +13,6 @@ function getArguments() {
 }
 
 //Gestiond'erreur
-
 function isValidArguments(arguments) { 
     if (arguments.length <= 0 && arguments.length  > 1) {
         console.error("ce script nécéssite un argument")
@@ -32,7 +31,7 @@ function areAllNumbers (arguments){
     return true;
 }
 
-//Resolution 
+//Utilitises 
 function isPrime(number) {
     if (number <= 1) return false;
     for (let i = 2; i <= Math.sqrt(number); i++){

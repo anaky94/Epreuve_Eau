@@ -40,10 +40,9 @@ function getCumbin() {
 }
 
 //Résolution
-function CreatCombin() {
-const arguments = getArguments(); // récupération des arguments
+function CreatCombin() { 
     if (!isValideArguments(arguments)){//vérifis si les arguments sont invalide 
-        return; // si invalide, arrête l'éxecution
+        return; //si invalide, arrête l'éxecution
     }
    
 }

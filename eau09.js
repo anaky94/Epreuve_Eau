@@ -24,7 +24,6 @@ function isNumber(str) {
         if(parseInt(str[i])) {
             compteur++
         }
-
         return str.length > 0; 
     }
 

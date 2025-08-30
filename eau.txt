@@ -9,3 +9,4 @@ le parsing
 la résolution
 et afficher les résultat 
 
+// Resolution à faire pour (exo 6, exo 8 , exo 10, exo11 , exo 14, exo 15, et exo 16 )

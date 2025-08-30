@@ -23,7 +23,7 @@ function validateArguments(args) {
 
 }
 
-//Utilitaire   
+//Utilitises  
 function letterOneOutOfTwo(strings) {
     
     let finalString = ""; 
