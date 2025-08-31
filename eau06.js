@@ -20,27 +20,23 @@ function getArguments() {
 //Gestion d'erreur
 function isValidateArguments(arguments) { 
     if (arguments.length !== 2 ){
-        console.error("Erreur")
+        console.error("Erreur : nombre d'arguments incorrect")
         return false
     }
     return true
 } 
-/* à faire pour la prochaine fois 
 
-***vérifier tous les arguments pas seulement le 1er
-***utiliser un e boucle pour traiter plusieurs
-***utilisier "typeof" pour une vérification plus précise
-
-*/
 function validateArgumentsNotNumber() {
-    if (!isNaN(Number(arguments))){
-        console.error("Error")
-        return false
+    for (let i = 0; i < arguments.length; i++ ){
+        if (typeof arguments[i] === "number" ){
+            console.error("error") 
+            return false
+        }
     }
     return true
 }
 
-console.log(validateArgumentsNotNumber())
+
 
 /* //Utilitises 
 function resolve() {

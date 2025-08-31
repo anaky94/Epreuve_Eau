@@ -43,7 +43,7 @@ function getArguments(){
 //Gestion d'erreur
 function isValidArguments (arguments){
     if (arguments.length < 1){
-        console.error ("ce scrpipt nécéssite un argurment")
+        console.error ("ce scrpipt nécéssite un argument")
         return false
     }
     return true 

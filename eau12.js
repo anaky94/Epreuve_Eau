@@ -63,7 +63,7 @@ function getArgumentsSpecialValue() {
 
     const validArguments = arguments
 
-    if(!isvalidArguments(validArgumentsLength)){
+    if(!validArguments(validArgumentsLength)){
         return
     }
     if(hasInvalidNumbers(validArguments)){
