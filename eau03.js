@@ -15,7 +15,7 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 */
 
 //Parsing
-function getArguments () {
+function getArguments() {
     const arguments = process.argv.slice(2);
     return arguments;
 }
@@ -53,7 +53,7 @@ function displayReversedArguments() {
 
 }
 
-function displayArray(array){
+function displayArray(array) {
     for(const element of array){
         console.log(element)
     }

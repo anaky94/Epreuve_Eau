@@ -20,7 +20,6 @@ function validateArguments(args) {
         console.error("ce script nécéssite un argument")
         process.exit(1); 
     }
-
 }
 
 //Utilitises  

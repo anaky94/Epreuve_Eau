@@ -16,20 +16,22 @@ function getArguments(){
 }
 
 //Gestion d'erreur
-function validateArguments(arguments) {
+function isValidateArguments(arguments) {
     if (arguments.length !== 1){
-        console.error("ce script nécéssite un arguments")
-        return false;
+        console.error("Erreur : nombre d'arguments incorrect")
+        return false
     }
     return true
 }
 
 function validateArgumentsNotNumber() {
-    if (!isNaN(parseFloat(args[0]))) {
-        console.error("Error")
-        return false
-    }
-    return true
+   for(let i = 0; i < arguments.length; i++){
+        if (typeof arguments[i] === "number"){
+            console.error("error")
+            return false
+        }
+   }
+   return true
 }
 
 //Utilitaires
