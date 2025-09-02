@@ -11,14 +11,15 @@ Afficher error et quitter le programme en cas de problèmes d’arguments */
 
 //Parsing 
 function getArguments() {
-    return process.argv.slice(2); 
+  const arguments = process.argv.slice(2)
+  return arguments
 }
 
 //Gestion d'erreur 
-function validateArguments(args) { 
-    if (args.length ==! 1){
+function validateArguments(arguments ) { 
+    if (arguments .length ==! 1){
         console.error("ce script nécéssite un argument")
-        process.exit(1); 
+        return arguments 
     }
 }
 
@@ -30,17 +31,24 @@ function letterOneOutOfTwo(strings) {
     for (let i = 0; i < strings.length; i++){
         const letter = strings[i];
         if ( i % 2 === 0 ){
-            finalString += (letter.toUpperCase())
+            finalString += letter.toUpperCase()
         } else {
-            finalString += (letter.toLowerCase())
+            finalString += letter.toLowerCase()
         }
     }
     return finalString
 }
 
 //Resolution 
-function toUppercase (char){
-    return char.chartAt((chartCodeAt(char) - 32))
+function displayStringUpper() {
+    const arguments = getArguments()
+    if (!isValidArguments(arguments)){
+        return
+    }
+    
+    const string = arguments[0]
+
+    console.log(letterOneOutOfTwo(string))
     
 }
     

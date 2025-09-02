@@ -18,7 +18,7 @@ function getArguments() {
 }
 
 //Gestion d'erreur
-function isValidateArguments(validArgumentsLength) { 
+function isValidArguments(validArgumentsLength) { 
     if (!validArgumentsLength){
         console.error("Erreur : ce script nécessite minimum 2 arguments")
         return false
@@ -26,7 +26,7 @@ function isValidateArguments(validArgumentsLength) {
     return true
 } 
 
-function validateArgumentsNotNumber() {
+function validArgumentsNotNumber() {
     for (let i = 0; i < arguments.length; i++ ){
         if (typeof arguments[i] === "number" ){
             console.error("error")
@@ -41,7 +41,7 @@ function validateArgumentsNotNumber() {
 //Utilitises 
 function findSubstring() {
     const arguments = getArguments();
-    const {fullString, subString} = validateArguments(arguments)
+    const {fullString, subString} = isValidArguments(arguments)
 
     let found = false;
 
@@ -62,26 +62,32 @@ function findSubstring() {
 
 //Resolution 
 function resolveFindSubstring() {
+
     const arguments = getArguments()
 
     const validArgumentsLength  = arguments.length < 2
 
+    if (!isValidArguments(validArgumentsLength)) {
+        return
+    }
+    const findSubstringArguments = getArgumentsFindSubstring(arguments)
 
+    return findSubstringArguments
 
 }
 
 
 
 //Affichage 
-function display() {
-    const args = getArguments();
-    if (!validateArguments(args)){
+function displayFindSubstring() {
+    const arguments = getArguments();
+    if (!isValidArguments(arguments)){
         return
     }
 }
+
 //Affichage 
-function display() {
-}
+displayFindSubstring()
 
 
 

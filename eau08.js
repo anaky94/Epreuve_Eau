@@ -35,17 +35,20 @@ function validateArgumentsNotNumber() {
 }
 
 //Utilitaires
-function beginWordWithUpperCase() {
+function beginWordWithUpperCase(string) {
+    const separators = [' ' ,'/t' ,'/n']
+    let newString = ""
 
-    const separatorRegex = [' ' ,'/t' ,'/n']; //Detecte les espace et tabulation comme separateur 
-    const words = str.split(separatorRegex); //separe les chaines en mots
-    let 
-    const processeWords = words.map(word => {
-        if (!word) return ""; //ignore les mots 
+    for (let i = 0; < string.length; i++){
+        for (separators.includes(string[i-1])){
+            newString +=string[i].toUpperCase
+        } else {
+            newString += string[i].tolowerCase
+        }
 
-        return word.charAt(0).toUpperCase() + word.slice(1).tolowerCase();
-    })  
-    return processeWords.join(" "); // recombine avec des espaces 
+    }
+
+    return newString 
 }
 
 //Resolution 
