@@ -21,16 +21,21 @@ function isValidArguments (arguments) {
     if (isNaN(num)){
     console.error("l'argument doit être un nombre.")
     return false;
-}
+    }
+} 
+
+function controlArguments() {
+    const num = Number(arguments[0])
     if (num < 0 ){
         console.error(-1)
         return false
     }
     return true 
-} 
+}
+
 
 function validArgumentLength(arguments) {
-    if (arguments.length < 1){
+    if (arguments.length !== 1){
         console.error("Ce script nécessite 1 argument.")
         return false
     }
@@ -51,7 +56,12 @@ function fibonacci(index) {
 }
 
 // Resolution 
-function chekIfFibonacci(arguments){
+function chekIfFibonacci(){
+    const arguments = getArguments()
+
+    if (!isValidArguments){
+
+    }
     return fibonacci(arguments[0])
 }
 

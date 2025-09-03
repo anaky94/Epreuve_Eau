@@ -47,6 +47,10 @@ function findFirstIndex(){
 
 }
 
+
+//Resolution 
+
+
 //Affichage
 function display(){
     console.log(findFirstIndex());
