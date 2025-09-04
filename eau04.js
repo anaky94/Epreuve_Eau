@@ -33,7 +33,6 @@ function controlArguments() {
     return true 
 }
 
-
 function validArgumentLength(arguments) {
     if (arguments.length !== 1){
         console.error("Ce script nécessite 1 argument.")
@@ -41,8 +40,6 @@ function validArgumentLength(arguments) {
     }
     return true; 
 }
-
-
 
 //Utilitaire
 function fibonacci(index) {
@@ -59,25 +56,26 @@ function fibonacci(index) {
 function chekIfFibonacci(){
     const arguments = getArguments()
 
-    if (!isValidArguments){
-
+    if (!isValidArguments(arguments)){
+        return
     }
-    return fibonacci(arguments[0])
+    if (!controlArguments(arguments)){
+        return
+    }
+    if (!validArgumentLength(arguments)){
+        return;
+    }
+    const index = arguments[0]
+    console.log(fibonacci(index))
 }
 
 
 // Afficher les resultats 
-function display() {
-    const args = getArguments();
-    if (!isValidArguments(args)){
-        return;
-    }
-    if (!validArgumentLength){
-        return;
-    }
-  
-    const index = Number(args[0]);
+function displayFibonacci() {
+    const arguments = getArguments();
 
-    console.log(fibonacci(index));
+    const n = Number(arguments[0]);
+    console.log(fibonacci(n));
 }
-display();
+
+displayFibonacci();

@@ -66,7 +66,7 @@ function getArgumentsSpecialValue() {
     if(!validArguments(validArgumentsLength)){
         return
     }
-    if(hasInvalidNumbers(validArguments)){
+    if(!hasInvalidNumbers(validArguments)){
         return 
     }
 

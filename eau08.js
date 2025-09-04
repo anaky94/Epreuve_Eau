@@ -10,15 +10,14 @@
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 //Parsing 
-function getArguments(){
+function getArguments() {
     const arguments = process.argv.slice(2)
-    return arguments;
+    return arguments
 }
-
 //Gestion d'erreur
-function isValidateArguments(arguments) {
-    if (arguments.length !== 1){
-        console.error("Erreur : nombre d'arguments incorrect")
+function isValidArguments(arguments) {
+    if (arguments.length === 0){
+        console.error("Erreur : ce script nécéssite 1 argument")
         return false
     }
     return true
@@ -39,9 +38,9 @@ function beginWordWithUpperCase(string) {
     const separators = [' ' ,'/t' ,'/n']
     let newString = ""
 
-    for (let i = 0; < string.length; i++){
-        for (separators.includes(string[i-1])){
-            newString +=string[i].toUpperCase
+    for (let i = 0; i < string.length; i++){
+        if (separators.includes(string[i-1])){
+            newString += string[i].toUpperCase
         } else {
             newString += string[i].tolowerCase
         }
@@ -52,12 +51,17 @@ function beginWordWithUpperCase(string) {
 }
 
 //Resolution 
+function resolveWordWithUpperCase() {
+    const args = getArguments()
+    if (!isValidArguments(args)){
+        return 
+    }
 
-//Display
-function display() {
-    const args = getArguments();
-    validateArguments(args);
-    beginWordWithUpperCase(args);
+    const string = args[0]
+
+    console.log(beginWordWithUpperCase(string))
 }
 
-display();
+//Display
+ resolveWordWithUpperCase()
+

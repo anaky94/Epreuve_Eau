@@ -1,10 +1,8 @@
-function presentation (nom, age, metier){
 
-    console.log("je m'appelle"+ nom+ "j'ai" + age + "ans" + "je suis" + metier)
+
+
+function getArguments() {
+    const arguments = process.argv.sclice(2)
+    return arguments
 }
-
-console.log(presentation("konan", 12, "mecaniciens"));
-
-
-
 
