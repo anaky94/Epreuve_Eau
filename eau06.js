@@ -61,7 +61,7 @@ function findSubstring() {
 
 
 //Resolution 
-function resolveFindSubstring() {
+function displayFindSubstring() {
 
     const arguments = getArguments()
 
@@ -70,21 +70,16 @@ function resolveFindSubstring() {
     if (!isValidArguments(validArgumentsLength)) {
         return
     }
+
+    if (!validArgumentsNotNumber(arguments)){
+        return
+    }
     const findSubstringArguments = getArgumentsFindSubstring(arguments)
 
     return findSubstringArguments
 
 }
 
-
-
-//Affichage 
-function displayFindSubstring() {
-    const arguments = getArguments();
-    if (!isValidArguments(arguments)){
-        return
-    }
-}
 
 //Affichage 
 displayFindSubstring()

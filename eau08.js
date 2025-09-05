@@ -51,7 +51,7 @@ function beginWordWithUpperCase(string) {
 }
 
 //Resolution 
-function resolveWordWithUpperCase() {
+function displayWordWithUpperCase() {
     const args = getArguments()
     if (!isValidArguments(args)){
         return 
@@ -63,5 +63,5 @@ function resolveWordWithUpperCase() {
 }
 
 //Display
- resolveWordWithUpperCase()
+displayWordWithUpperCase()
 

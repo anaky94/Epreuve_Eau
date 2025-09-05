@@ -50,12 +50,7 @@ function isValidArguments (arguments){
 }
 
 //Resolution 
-function chekIfNumber(arguments) {
-    return isNumber(arguments[0])   
-}
-
-//Afficher le resultat 
-function displayResult() {
+function displayIsNumber() {
     const arguments = getArguments()
     if (!isValidArguments(arguments))
         return 
@@ -63,5 +58,7 @@ function displayResult() {
     const isNum = chekIfNumber(arguments)
     console.log(isNum)
 }
-displayResult()
+
+//Afficher le resultat 
+ displayIsNumber()
   
