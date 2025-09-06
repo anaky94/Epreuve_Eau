@@ -35,14 +35,13 @@ function validArguments(validArgumentLength){
 
 function findFirstIndex(){
     const arguments = getArguments();
-    validateArguments(arguments);
 
-
-        lastArg = arguments [arguments.length-1]
+    const lastIndex = arguments.length - 1
+    const lastArg = arguments[lastIndex]
    
   
-    for (let i = 0; i < arguments.length; i++){
-        if (arguments[i] === lastArg(arguments)){
+    for (let i = 0; i < lastIndex; i++){
+        if (arguments[i] === lastArg){
             return i; //trouvé 
         }
     }
@@ -51,12 +50,13 @@ function findFirstIndex(){
 }
 
 
+
 //Resolution 
 
 
 function getfindFirstIndex(){
     
-    if (validArgumentLength === 0 ){
+    if (!validArgumentLength === 0 ){
         return -1
     }
 }
