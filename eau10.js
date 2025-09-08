@@ -65,7 +65,7 @@ function getSeriesArguments() {
 
 //Affichage
 function displayDigitalSeries() {
-    const [num1, num2] = validateArguments(getArguments());
+    const [num1, num2] =isvalidArguments(getArguments());
     digitalSeries(num1,num2);
     return
 }

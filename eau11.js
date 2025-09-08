@@ -24,7 +24,7 @@ function getArguments(){
 }
 
 //Gestion d'erreur
-function validArguments(validArgumentLength){
+function isvalidArguments(validArgumentLength){
     if (!validArgumentLength){
         console.log("ce script nécéssite minimum deux arguments")
         return validArgumentLength
@@ -52,22 +52,26 @@ function findFirstIndex(){
 
 
 //Resolution 
-
-
 function getfindFirstIndex(){
+    const arguments = getArguments()
+
+    const validArgumentLength = arguments.length === 0
     
-    if (!validArgumentLength === 0 ){
-        return -1
+    if (!validArgumentLength(arguments) ){
+        return
     }
+    const findFirstIndex = getfindFirstIndex((arguments))
+
+    return findFirstIndex
 }
 
 //Affichage
-function display(){
+function displayIndex(){
     console.log(findFirstIndex());
 
 }
 
-display();
+displayIndex();
 
 
 

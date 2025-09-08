@@ -13,16 +13,17 @@
 
 
 function getArguments(){
-    return process.argv.slice(2);
+    const arguments = process.argv.sclice(2)
+    return arguments
 }
 
 
 
 //function 
-function sortList (){
-    const nombres = getArguments();
+function sortList(numberSort) {
+   
     // ValidateArguments(nombres);
-    const nums = nombres.map(Number);
+    const nums = numberSort.map(Number);
 
     for (let i = 0; i < nums.length - 1; i++){
         let minIndex = i; 
@@ -39,35 +40,40 @@ function sortList (){
 
 
 //Gestion d'erreur 
-function validateArguments (args){
-    if(args.length < 3 ){
-        console.log("ce script nécéssite au moins trois arguments ");
-        process.exit(1);
+function isvalidArguments (validArgumentLength){
+    if (!validArgumentLength)
+    {
+        console.log("ce script nécéssite minimum deux arguments")
+        return validArgumentLength
     }
+
 }
 
 
-function areAllNumbers(args) {
+function checkTheValidNumber(args) {
     for(const arg of args){
         if (arg.trim() === ""|| (isNaN(Number(arg)))){
             console.error(`Erreur : ce n'est pas un nombre valide`);
             console.info(" Exemple : node script.js 4 6 12 ");
-            process.exit(1);
+            return
         }
     }
 }
 
+// resolution
+function getSorList (){
+    const arguments = getArguments();
+     const validArgumentLength = arguments.length < 2
 
-function display (){
-    args = getArguments();
+    if(!isvalidArguments(arguments));
+    if(!checkTheValidNumber(arguments));
 
-    if(!validateArguments(args));
-    if(!areAllNumbers(args));
-
-    const sorted = sortList(args); 
-    console.log("Resultats triés:" , sorted.join(" "));
 
 }
 
+function displaySortList(){
+    const sorted = sortList(args); 
+    console.log("Resultats triés:" , sorted.join(" "));
+}
 //Affichage
-display(); 
+displaySortList(); 

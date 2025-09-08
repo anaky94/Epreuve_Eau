@@ -8,17 +8,17 @@ A E R T Y Z
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 */
 
-function getArguments(){
-
-    const args = process.argv.slice(2);
-    return args; 
+function getArguments()
+{
+    const arguments = process.argv.slice(2)
+    return arguments
 }
 //faire une fonction qui trnasforme chaque chaine de caracter representer en code ascci 
 
 //résolution 
-function sortTheElements(args){
-    for(let i = 0 ; i < args.length; i++){
-        for (let j = 0; j < args.length - i - 1; j++ ){
+function sortTheElements(arguments){
+    for(let i = 0 ; i < arguments.length; i++){
+        for (let j = 0; j < arguments.length - i - 1; j++ ){
             //comparez les codes ASCII des élément sadjacents 
             if (args[j].charCodeAt(0) > args[j+1].charCodeAt(0)){
                 //echangez les éléments si nécessaiez 
