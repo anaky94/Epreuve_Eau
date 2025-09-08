@@ -8,44 +8,59 @@ A E R T Y Z
 Afficher error et quitter le programme en cas de problèmes d’arguments.
 */
 
+//Parsing
 function getArguments()
 {
     const arguments = process.argv.slice(2)
     return arguments
 }
-//faire une fonction qui trnasforme chaque chaine de caracter representer en code ascci 
 
-//résolution 
+//Utilitises
 function sortTheElements(arguments){
     for(let i = 0 ; i < arguments.length; i++){
         for (let j = 0; j < arguments.length - i - 1; j++ ){
             //comparez les codes ASCII des élément sadjacents 
-            if (args[j].charCodeAt(0) > args[j+1].charCodeAt(0)){
+            if (arguments[j] > arguments[j+1]){
                 //echangez les éléments si nécessaiez 
-                [args[j], args[j+1]] = [args[j + 1 ], args[j]]; 
+                [arguments[j], arguments[j+1]] = [arguments[j + 1 ], arguments[j]]
             }
         }
     } 
-    return args;
+    return arguments;
 }
 
 
-//gestion d'erreur 
-function validateArguments (args){
-    if(!args || args.length === 0){
-        console.log("erreur: Aucun argument fourni");
-        return [];
+//Gestion d'erreur 
+function isValidArguments (validArgumentsLength){
+    if(!validArgumentsLength){
+        console.error("Ce script nécéssite au moins un arguments")
+        return false
     }
+    return true
+    
 }
 
-function display (){
-    args = getArguments();
+//Résolution
+function getSortTheElements() {
+    const arguments = getArguments()
+    const validArgumentsLength = arguments.length < 1
 
-    if (!validateArguments(args));
-    // if (!areAllNumbers(args));
+    if (!isValidArguments(validArgumentsLength)){
+        return 
+    }
 
-    const sorted =  sortTheElements(args);
-    console.log(sorted.join(""));
+    return sortTheElements(arguments);
+    
 }
 
-display(); 
+// Display
+function displayArray(array) {
+    if (!array) return 
+
+    for (const element of array) {
+        console.log(element)
+
+    }
+} 
+
+displayArray(getSortTheElements())

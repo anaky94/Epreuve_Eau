@@ -1,32 +1,36 @@
 
-
+/* Eau OK  */
 
 function getArguments(){
-    return process.argv.slice(2);
+    const arguments = process.argv.slice(2)
+    return arguments
 }
 
 
-// gestion d'erreur
-function validateArguments (args){
-    if (!args || args.length ===0){
-        console.log("erreur : aucun agument fournis")
-        exit(1);
+//Gestion d'erreur
+function isValidArguments (validArgumentLength){
+    if (!validArgumentLength){
+        console.error("Ce script nécéssite au moins un arguments")
+        return false
     }
+    return true
 }
-
+//Utilitises 
 function endEau (choice){
     console.log(`j'ai terminer les épreuve de l'eau s'etait ${choice}`)
     return[];
 }
 
-
+//Resolution 
 function display (){
-    args = getArguments();
+    arguments = getArguments();
 
-    if (!validateArguments(args));
+    const hasvalidLength = arguments.length >= 1 
 
-    const words = endEau(args);
-    console.log(words);
+    if (!isValidArguments(hasvalidLength)){
+        return
+    }
+
 }
 
 display();

@@ -17,8 +17,6 @@ function getArguments(){
     return arguments
 }
 
-
-
 //function 
 function sortList(numberSort) {
    
@@ -37,42 +35,47 @@ function sortList(numberSort) {
     return nums 
 }
 
-
-
 //Gestion d'erreur 
 function isvalidArguments (validArgumentLength){
     if (!validArgumentLength)
     {
         console.log("ce script nécéssite minimum deux arguments")
-        return validArgumentLength
+        return false
     }
+    return true
+
 
 }
-
 
 function checkTheValidNumber(args) {
     for(const arg of args){
         if (arg.trim() === ""|| (isNaN(Number(arg)))){
             console.error(`Erreur : ce n'est pas un nombre valide`);
             console.info(" Exemple : node script.js 4 6 12 ");
-            return
+            return true
         }
-    }
+    } return false
 }
 
 // resolution
-function getSorList (){
-    const arguments = getArguments();
-     const validArgumentLength = arguments.length < 2
+function getSorList() {
+    const arguments = getArguments()
+    const validArgumentLength  = arguments.length < 2
 
-    if(!isvalidArguments(arguments));
-    if(!checkTheValidNumber(arguments));
+    if(!isvalidArguments(validArgumentLength)){
+        return
+    }
 
+    if(!checkTheValidNumber(arguments)){
+        return
+    }
+
+    return sortList(arguments)
 
 }
 
 function displaySortList(){
-    const sorted = sortList(args); 
+    const sorted = sortList(arguments); 
     console.log("Resultats triés:" , sorted.join(" "));
 }
 //Affichage

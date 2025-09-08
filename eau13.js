@@ -42,9 +42,9 @@ function sortList(numberOfList) {
 
 
  //Gestion d'erreur 
-function isvalidArguments (validArgumentsLength) {
+function isValidArguments (validArgumentsLength) {
     if (!validArgumentsLength){
-        console.error("ce script nécéssite au moins trois arguments ");
+        console.error("Ce script nécéssite au moins trois arguments ");
         return false
     }
     return true 
@@ -69,10 +69,10 @@ function getArgumentsSortlist() {
 
     const validArguments = arguments
 
-    if (!isvalidArguments(validArgumentsLength)){
+    if (!isValidArguments(validArgumentsLength)){
         return
     }
-    if (hasInvalidNumbers(validArguments)){
+    if (!hasInvalidNumbers(validArguments)){
         return 
     }
 
@@ -85,7 +85,7 @@ function getArgumentsSortlist() {
 function displayArray(array) {
     if (!array) return
 
-    for (const element of array){
+    for (const element of array) {
         console.log(element)
     }
 }
