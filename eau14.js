@@ -1,82 +1,66 @@
-// Vous utiliserez une fonction de cette forme (selon votre langage) :
-// my_select_sort(array) {
-// 	# votre algorithme
-// 	return (new_array)
+/* Créez un programme qui trie les éléments donnés en argument par ordre ASCII.
+Exemples d’utilisation :
+$> python exo.py Alfred Momo Gilbert
+Alfred Gilbert Momo
+$> python exo.py A Z E R T Y
+A E R T Y Z
 
-// Exemples d’utilisation :
-// $> python exo.py 6 5 4 3 2 1
-// 1 2 3 4 5 6
-// $> python exo.py test test test
-// error
-// Afficher error et quitter le programme en cas de problèmes d’arguments.
-// Wikipedia vous présentera une belle description de cet algorithme de tri.
+Afficher error et quitter le programme en cas de problèmes d’arguments.
+*/
 
-
-function getArguments(){
-    const arguments = process.argv.sclice(2)
+//Parsing
+function getArguments()
+{
+    const arguments = process.argv.slice(2)
     return arguments
 }
 
-//function 
-function sortList(numberSort) {
-   
-    // ValidateArguments(nombres);
-    const nums = numberSort.map(Number);
-
-    for (let i = 0; i < nums.length - 1; i++){
-        let minIndex = i; 
-        for(let j = i + 1; j < nums.length; j++){
-            if(nums[j] < nums[minIndex]){
-                minIndex = j;
+//Utilitises
+function sortTheElements(arguments){
+    for(let i = 0 ; i < arguments.length; i++){
+        for (let j = 0; j < arguments.length - i - 1; j++ ){
+            //comparez les codes ASCII des élément sadjacents 
+            if (arguments[j] > arguments[j+1]){
+                //echangez les éléments si nécessaiez 
+                [arguments[j], arguments[j+1]] = [arguments[j + 1 ], arguments[j]]
             }
         }
-        [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
-    }
-    return nums 
+    } 
+    return arguments;
 }
 
+
 //Gestion d'erreur 
-function isvalidArguments (validArgumentLength){
-    if (!validArgumentLength)
-    {
-        console.log("ce script nécéssite minimum deux arguments")
+function isValidArguments (validArgumentsLength){
+    if(!validArgumentsLength){
+        console.error("Ce script nécéssite au moins un arguments")
         return false
     }
     return true
-
-
+    
 }
 
-function checkTheValidNumber(args) {
-    for(const arg of args){
-        if (arg.trim() === ""|| (isNaN(Number(arg)))){
-            console.error(`Erreur : ce n'est pas un nombre valide`);
-            console.info(" Exemple : node script.js 4 6 12 ");
-            return true
-        }
-    } return false
-}
-
-// resolution
-function getSorList() {
+//Résolution
+function getSortTheElements() {
     const arguments = getArguments()
-    const validArgumentLength  = arguments.length < 2
+    const validArgumentsLength = arguments.length < 1
 
-    if(!isvalidArguments(validArgumentLength)){
-        return
+    if (!isValidArguments(validArgumentsLength)){
+        return 
     }
 
-    if(!checkTheValidNumber(arguments)){
-        return
+    return sortTheElements(arguments);
+    
+}
+
+// Display
+function displayArray(array) {
+    if (!array) return 
+
+    for (const element of array) {
+        console.log(element)
+
     }
+} 
 
-    return sortList(arguments)
-
-}
-
-function displaySortList(){
-    const sorted = sortList(arguments); 
-    console.log("Resultats triés:" , sorted.join(" "));
-}
-//Affichage
-displaySortList(); 
+displayArray(getSortTheElements())

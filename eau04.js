@@ -1,81 +1,68 @@
-/*
-Créez un programme qui affiche le N-ème élément de la célèbre suite de Fibonacci. (0, 1, 1, 2) étant le début de la suite et le premier élément étant à l’index 0.
+/* Créez un programme qui affiche le premier nombre premier supérieur au nombre donné en argument.
 Exemples d’utilisation :
-$> python exo.py 3
-2
+$> python exo.py 14
+17
 $>
-
 Afficher -1 si le paramètre est négatif ou mauvais.
-*/
+ */
 
-
-//Parsing
-function getArguments () {
+//Parsing 
+function getArguments() {
     const arguments = process.argv.slice(2);
     return arguments;
 }
 
-//Gestion d'erreur
-function isValidArguments (arguments) { 
-    const num = Number(arguments[0])
-    if (isNaN(num)){
-    console.error("l'argument doit être un nombre.")
-    return false;
+//Gestiond'erreur
+function isValidArguments(arguments) { 
+    if (arguments.length <= 0 && arguments.length  > 1) {
+        console.error("ce script nécéssite un argument")
+    return false;  
     }
-} 
-
-function controlArguments() {
-    const num = Number(arguments[0])
-    if (num < 0 ){
-        console.error(-1)
-        return false
-    }
-    return true 
+    return true;
 }
 
-function validArgumentLength(arguments) {
-    if (arguments.length !== 1){
-        console.error("Ce script nécessite 1 argument.")
-        return false
+function areAllNumbers (arguments){
+    for (let i = 0; i < arguments.length; i++){
+        if (isNaN(arguments[i])){
+            console.error("ce script nécessite un  nombre en arguments")
+            return false;
+        }
     }
-    return true; 
+    return true;
 }
 
-//Utilitaire
-function fibonacci(index) {
-    let a = 0,  b = 1;
-    for (let i = 2; i <= index; i++){
-        let c = a + b;
-        a = b;
-        b = c;
+//Utilitises 
+function isPrime(number) {
+    if (number <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(number); i++){
+        if  ( number % i === 0 ) 
+         return false;        
     }
-    return b; 
+    return true;
 }
 
-// Resolution 
-function chekIfFibonacci(){
-    const arguments = getArguments()
-
-    if (!isValidArguments(arguments)){
-        return
+//trouver le premier nombre sup à n 
+function findNextPrime(number){
+    let candidate = number + 1;
+    while (true){
+        if (isPrime(candidate)){
+            return candidate; 
+        }
+        candidate++; //pass eau nombre suivant
     }
-    if (!controlArguments(arguments)){
-        return
-    }
-    if (!validArgumentLength(arguments)){
-        return;
-    }
-    const index = arguments[0]
-    console.log(fibonacci(index))
 }
 
-
-// Afficher les resultats 
-function displayFibonacci() {
+// resolution
+function displayNextPrime() {
     const arguments = getArguments();
-
-    const n = Number(arguments[0]);
-    console.log(fibonacci(n));
+    if (!isValidArguments(arguments) || (!areAllNumbers(arguments))){
+        return;   
+    }
+    const number = Number(arguments[0]); //convertir l'argument en nombre 
+    const result = findNextPrime(number);
+    console.log(`le premier nombre premier supérieur à ${number} est : ${result}`);
 }
 
-displayFibonacci();
+displayNextPrime();
+
+

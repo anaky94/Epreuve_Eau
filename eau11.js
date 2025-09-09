@@ -1,105 +1,85 @@
-/* 
-Créez un programme qui affiche le premier index d’un élément recherché dans un tableau. Le tableau est constitué de tous les arguments sauf le dernier. L’élément recherché est le dernier argument. Afficher -1 si l’élément n’est pas trouvé.
+// Créez un programme qui affiche la différence minimum absolue entre deux éléments d’un tableau constitué uniquement de nombres. Nombres négatifs acceptés.
+// Exemples d’utilisation :
+// $> python exo.py 5 1 19 21
+// 2
 
-Exemples d’utilisation :
-$> python exo.py 
-6
+// $> python exo.py 20 5 1 19 21
 
+// $> python exo.py -8 -6 4
+// # par la boucle for parcourir le tableau et afficher le le nombre mini dans ce tableau 
+// # afficher le minimum entre lindex 3 du tableau et l'index 2
+//      afficher le minimum
+//     # afficher  le minimum entre lindex 1 du tableau et l'index 0
+//         afficher le minimum
+// afficher le minimum entre le resulta de l'index 3 et 2 et le result de l'index de l'index 1 et 0 
 
-$> python exo.py test test test
-0
-
-$> python exo.py test boom
--1
-
-Afficher error et quitter le programme en cas de problèmes d’arguments.
- */
-
-//parsing
-function getArguments(){
-    const arguments = process.argv.slice(2)
+            
+//Parsing
+function getArguments() {
+    const arguments = process.argv.slice(2);
     return arguments 
-    
+}
 
+
+//Utilitises
+function findSpecialValue (Mindestunterschied) {
+    const smallNumber = Mindestunterschied.map(Number).sort(a,b =>a-b)
+    const minDiff = Infinity
+
+    for (let i = 0; i < smallNumber.length - 1; i++){
+        const diff =  smallNumber[i+1] - smallNumber[i];
+        if (diff < minDiff){
+            minDiff = diff
+        }    
+    }
+    return smallNumber
 }
 
 //Gestion d'erreur
-function isvalidArguments(validArgumentLength){
-    if (!validArgumentLength){
-        console.log("ce script nécéssite minimum deux arguments")
-        return validArgumentLength
+function validateArguments(validArgumentsLength){
+    if (!validArgumentsLength){
+        console.error("ce script nécéssite au moins  deux arguments");
+        return false
     }
-
+    return true 
 }
 
-
-function findFirstIndex(){
-    const arguments = getArguments();
-
-    const lastIndex = arguments.length - 1
-    const lastArg = arguments[lastIndex]
-   
-  
-    for (let i = 0; i < lastIndex; i++){
-        if (arguments[i] === lastArg){
-            return i; //trouvé 
+function hasInvalidNumbers (validArguments){
+    for (const argument of validArguments){
+        if (argument.trim() === "" || isNaN(Number(argument))){
+            console.error(`Erreur : "${arguments}" n'est pas un nombre valide`)
+            console.info("Exemple : node script.js 4 5 12");
+            return true
         }
-    }
-    return -1; // non trouvé
-
+    } return false
 }
-
 
 
 //Resolution 
-function getfindFirstIndex(){
+function getArgumentsSpecialValue() {
     const arguments = getArguments()
 
-    const validArgumentLength = arguments.length === 0
-    
-    if (!validArgumentLength(arguments) ){
+    const validArgumentsLength = arguments.length >= 3
+
+    const validArguments = arguments
+
+    if(!validArguments(validArgumentsLength)){
         return
     }
-    const findFirstIndex = getfindFirstIndex((arguments))
+    if(!hasInvalidNumbers(validArguments)){
+        return 
+    }
 
-    return findFirstIndex
+    return  findSpecialValue(arguments)
 }
 
 //Affichage
-function displayIndex(){
-    console.log(findFirstIndex());
+function displayArray(array) {
+    if (!array) return 
 
+    for (const element of array){
+        console.log(element)
+    }
 }
 
-displayIndex();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+displayArray(getArgumentsSpecialValue())

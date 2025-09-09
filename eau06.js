@@ -1,88 +1,65 @@
-/*  String dans string
-Créez un programme qui détermine si une chaîne de caractère se trouve dans une autre.
+/* Créez un programme qui met en majuscule une lettre sur deux d’une chaîne de caractères. Seule les lettres (A-Z, a-z) sont prises en compte.
+
 Exemples d’utilisation :
-$> python exo.py bonjour jour
-true
-$> python exo.py bonjour joure
-false
+$> python exo.py “Hello world !”
+HeLlO wOrLd !
+
 $> python exo.py 42
 error
 
-Afficher error et quitter le programme en cas de problèmes d’arguments.
-*/
+Afficher error et quitter le programme en cas de problèmes d’arguments */
 
-//le parsing
+//Parsing 
 function getArguments() {
-    const arguments = process.argv.slice(2);
-    return arguments 
+  const arguments = process.argv.slice(2)
+  return arguments
 }
 
-//Gestion d'erreur
-function isValidArguments(validArgumentsLength) { 
-    if (!validArgumentsLength){
-        console.error("Erreur : ce script nécessite minimum 2 arguments")
-        return false
+//Gestion d'erreur 
+function validateArguments(arguments ) { 
+    if (arguments .length ==! 1){
+        console.error("ce script nécéssite un argument")
+        return arguments 
     }
-    return true
-} 
-
-function validArgumentsNotNumber() {
-    for (let i = 0; i < arguments.length; i++ ){
-        if (typeof arguments[i] === "number" ){
-            console.error("error")
-            return false
-        }
-    }
-    return true
 }
 
-
-
-//Utilitises 
-function findSubstring() {
-    const arguments = getArguments();
-    const {fullString, subString} = isValidArguments(arguments)
-
-    let found = false;
-
-    for (let i = 0; i <= fullString.length-subString.length; i++){
-        if (fullString[i] === subString[0]) {
-            found = true
-            for (let j = 0; j < subString.length; j++){
-            }
-        }
-        if (fullString.slice(i, i + subString.length) === subString) {
-            found = true;
-            break
+//Utilitises  
+function letterOneOutOfTwo(strings) {
+    
+    let finalString = ""; 
+    
+    for (let i = 0; i < strings.length; i++){
+        const letter = strings[i];
+        if ( i % 2 === 0 ){
+            finalString += letter.toUpperCase()
+        } else {
+            finalString += letter.toLowerCase()
         }
     }
-    console.log(found)
+    return finalString
 }
-
 
 //Resolution 
-function displayFindSubstring() {
-
+function displayStringUpper() {
     const arguments = getArguments()
-
-    const validArgumentsLength  = arguments.length < 2
-
-    if (!isValidArguments(validArgumentsLength)) {
+    if (!isValidArguments(arguments)){
         return
     }
+    
+    const string = arguments[0]
 
-    if (!validArgumentsNotNumber(arguments)){
-        return
-    }
-    const findSubstringArguments = getArgumentsFindSubstring(arguments)
-
-    return findSubstringArguments
-
+    console.log(letterOneOutOfTwo(string))
+    
 }
-
-
-//Affichage 
-displayFindSubstring()
-
-
-
+    
+//Resolution 
+function displaystringdUpper() {
+    const args = getArguments();
+    if (!validateArguments(args)){
+        return
+    }
+    const string = letterOneOutOfTwo(args)
+    console.log(string)
+} 
+//Affichage
+displaystringdUpper()

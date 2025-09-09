@@ -1,9 +1,8 @@
-// """ Créez un programme qui trie une liste de nombres. Votre programme devra implémenter l’algorithme du tri à bulle.
 // Vous utiliserez une fonction de cette forme (selon votre langage) :
-// my_bubble_sort(array) {
+// my_select_sort(array) {
 // 	# votre algorithme
 // 	return (new_array)
-// }
+
 // Exemples d’utilisation :
 // $> python exo.py 6 5 4 3 2 1
 // 1 2 3 4 5 6
@@ -13,82 +12,71 @@
 // Wikipedia vous présentera une belle description de cet algorithme de tri.
 
 
-// Revoire la fonction sortList() mettre un arguments 
-// Revoir la finction display() mettre un arguments aussi 
-// Mettre un systeme pour convertis les chaines de caractère en nombre 
-
-
-//Parsing
 function getArguments(){
-    const arguments = process.argv.slice(2);
-    return arguments 
-
+    const arguments = process.argv.sclice(2)
+    return arguments
 }
 
+//function 
+function sortList(numberSort) {
+   
+    // ValidateArguments(nombres);
+    const nums = numberSort.map(Number);
 
-//Utilitises 
-function sortList(numberOfList) {
-    const sortedArray = numberOfList.map(Number)
-
-    for (let i = 0; i < sortedArray.length; i++){
-        for( let j = 0; j < sortedArray.length - i - 1; j++){
-            if (sortedArray[j] > sortedArray[j+1]){
-                [sortedArray[j], sortedArray[j+1]] = [sortedArray[j+1], sortedArray[j]]
+    for (let i = 0; i < nums.length - 1; i++){
+        let minIndex = i; 
+        for(let j = i + 1; j < nums.length; j++){
+            if(nums[j] < nums[minIndex]){
+                minIndex = j;
             }
-        }   
+        }
+        [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]];
     }
-    return sortedArray
+    return nums 
 }
 
-
- //Gestion d'erreur 
-function isValidArguments (validArgumentsLength) {
-    if (!validArgumentsLength){
-        console.error("Ce script nécéssite au moins trois arguments ");
+//Gestion d'erreur 
+function isvalidArguments (validArgumentLength){
+    if (!validArgumentLength)
+    {
+        console.log("ce script nécéssite minimum deux arguments")
         return false
     }
-    return true 
+    return true
+
+
 }
 
-function hasInvalidNumbers (validArguments) {
-    for (const argument of validArguments){
-        if (argument.trim() === "" || isNaN(Number(argument))){
-            console.error(`Erreur : "${argument}" n'est pas un nombre Valide`);
-            console.info("Exemple : node script.js 4 5 12");
-            return true // <-- quand ya une erreur 
-
-        } 
-    } return false // <-- quand c'est vrai 
+function checkTheValidNumber(args) {
+    for(const arg of args){
+        if (arg.trim() === ""|| (isNaN(Number(arg)))){
+            console.error(`Erreur : ce n'est pas un nombre valide`);
+            console.info(" Exemple : node script.js 4 6 12 ");
+            return true
+        }
+    } return false
 }
 
-//Résolution 
-function getArgumentsSortlist() {
+// resolution
+function getSorList() {
     const arguments = getArguments()
-    
-    const validArgumentsLength = arguments.length >= 3
+    const validArgumentLength  = arguments.length < 2
 
-    const validArguments = arguments
-
-    if (!isValidArguments(validArgumentsLength)){
+    if(!isvalidArguments(validArgumentLength)){
         return
     }
-    if (!hasInvalidNumbers(validArguments)){
-        return 
+
+    if(!checkTheValidNumber(arguments)){
+        return
     }
 
-    
     return sortList(arguments)
- 
+
 }
 
-//Afficher le resultat 
-function displayArray(array) {
-    if (!array) return
-
-    for (const element of array) {
-        console.log(element)
-    }
+function displaySortList(){
+    const sorted = sortList(arguments); 
+    console.log("Resultats triés:" , sorted.join(" "));
 }
-
-
-displayArray(getArgumentsSortlist())
+//Affichage
+displaySortList(); 

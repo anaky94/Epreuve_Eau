@@ -1,85 +1,94 @@
-// Créez un programme qui affiche la différence minimum absolue entre deux éléments d’un tableau constitué uniquement de nombres. Nombres négatifs acceptés.
+// """ Créez un programme qui trie une liste de nombres. Votre programme devra implémenter l’algorithme du tri à bulle.
+// Vous utiliserez une fonction de cette forme (selon votre langage) :
+// my_bubble_sort(array) {
+// 	# votre algorithme
+// 	return (new_array)
+// }
 // Exemples d’utilisation :
-// $> python exo.py 5 1 19 21
-// 2
+// $> python exo.py 6 5 4 3 2 1
+// 1 2 3 4 5 6
+// $> python exo.py test test test
+// error
+// Afficher error et quitter le programme en cas de problèmes d’arguments.
+// Wikipedia vous présentera une belle description de cet algorithme de tri.
 
-// $> python exo.py 20 5 1 19 21
 
-// $> python exo.py -8 -6 4
-// # par la boucle for parcourir le tableau et afficher le le nombre mini dans ce tableau 
-// # afficher le minimum entre lindex 3 du tableau et l'index 2
-//      afficher le minimum
-//     # afficher  le minimum entre lindex 1 du tableau et l'index 0
-//         afficher le minimum
-// afficher le minimum entre le resulta de l'index 3 et 2 et le result de l'index de l'index 1 et 0 
+// Revoire la fonction sortList() mettre un arguments 
+// Revoir la finction display() mettre un arguments aussi 
+// Mettre un systeme pour convertis les chaines de caractère en nombre 
 
-            
+
 //Parsing
-function getArguments() {
+function getArguments(){
     const arguments = process.argv.slice(2);
     return arguments 
+
 }
 
 
-//Utilitises
-function findSpecialValue (Mindestunterschied) {
-    const smallNumber = Mindestunterschied.map(Number).sort(a,b =>a-b)
-    const minDiff = Infinity
+//Utilitises 
+function sortList(numberOfList) {
+    const sortedArray = numberOfList.map(Number)
 
-    for (let i = 0; i < smallNumber.length - 1; i++){
-        const diff =  smallNumber[i+1] - smallNumber[i];
-        if (diff < minDiff){
-            minDiff = diff
-        }    
+    for (let i = 0; i < sortedArray.length; i++){
+        for( let j = 0; j < sortedArray.length - i - 1; j++){
+            if (sortedArray[j] > sortedArray[j+1]){
+                [sortedArray[j], sortedArray[j+1]] = [sortedArray[j+1], sortedArray[j]]
+            }
+        }   
     }
-    return smallNumber
+    return sortedArray
 }
 
-//Gestion d'erreur
-function validateArguments(validArgumentsLength){
+
+ //Gestion d'erreur 
+function isValidArguments (validArgumentsLength) {
     if (!validArgumentsLength){
-        console.error("ce script nécéssite au moins  deux arguments");
+        console.error("Ce script nécéssite au moins trois arguments ");
         return false
     }
     return true 
 }
 
-function hasInvalidNumbers (validArguments){
+function hasInvalidNumbers (validArguments) {
     for (const argument of validArguments){
         if (argument.trim() === "" || isNaN(Number(argument))){
-            console.error(`Erreur : "${arguments}" n'est pas un nombre valide`)
+            console.error(`Erreur : "${argument}" n'est pas un nombre Valide`);
             console.info("Exemple : node script.js 4 5 12");
-            return true
-        }
-    } return false
+            return true // <-- quand ya une erreur 
+
+        } 
+    } return false // <-- quand c'est vrai 
 }
 
-
-//Resolution 
-function getArgumentsSpecialValue() {
+//Résolution 
+function getArgumentsSortlist() {
     const arguments = getArguments()
-
+    
     const validArgumentsLength = arguments.length >= 3
 
     const validArguments = arguments
 
-    if(!validArguments(validArgumentsLength)){
+    if (!isValidArguments(validArgumentsLength)){
         return
     }
-    if(!hasInvalidNumbers(validArguments)){
+    if (!hasInvalidNumbers(validArguments)){
         return 
     }
 
-    return  findSpecialValue(arguments)
+    
+    return sortList(arguments)
+ 
 }
 
-//Affichage
+//Afficher le resultat 
 function displayArray(array) {
-    if (!array) return 
+    if (!array) return
 
-    for (const element of array){
+    for (const element of array) {
         console.log(element)
     }
 }
 
-displayArray(getArgumentsSpecialValue())
+
+displayArray(getArgumentsSortlist())

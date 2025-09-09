@@ -1,65 +1,67 @@
-/* Créez un programme qui met en majuscule une lettre sur deux d’une chaîne de caractères. Seule les lettres (A-Z, a-z) sont prises en compte.
+//Créez un programme qui met en majuscule la première lettre de chaque mot d’une chaîne de caractères. Les autres lettres devront être en minuscules. Les mots ne sont délimités que par un espace, une tabulation ou un retour à la ligne.
 
-Exemples d’utilisation :
-$> python exo.py “Hello world !”
-HeLlO wOrLd !
+// Exemples d’utilisation :
+// $> python exo.py “bonjour mathilde, comment vas-tu ?!”
+// Bonjour Mathilde, Comment Vas-tu ?!
 
-$> python exo.py 42
-error
+// $> python exo.py 42
+// error
 
-Afficher error et quitter le programme en cas de problèmes d’arguments */
+// Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 //Parsing 
 function getArguments() {
-  const arguments = process.argv.slice(2)
-  return arguments
+    const arguments = process.argv.slice(2)
+    return arguments
 }
-
-//Gestion d'erreur 
-function validateArguments(arguments ) { 
-    if (arguments .length ==! 1){
-        console.error("ce script nécéssite un argument")
-        return arguments 
+//Gestion d'erreur
+function isValidArguments(arguments) {
+    if (arguments.length === 0){
+        console.error("Erreur : ce script nécéssite 1 argument")
+        return false
     }
+    return true
 }
 
-//Utilitises  
-function letterOneOutOfTwo(strings) {
-    
-    let finalString = ""; 
-    
-    for (let i = 0; i < strings.length; i++){
-        const letter = strings[i];
-        if ( i % 2 === 0 ){
-            finalString += letter.toUpperCase()
-        } else {
-            finalString += letter.toLowerCase()
+function validateArgumentsNotNumber() {
+   for(let i = 0; i < arguments.length; i++){
+        if (typeof arguments[i] === "number"){
+            console.error("error")
+            return false
         }
+   }
+   return true
+}
+
+//Utilitaires
+function beginWordWithUpperCase(string) {
+    const separators = [' ' ,'/t' ,'/n']
+    let newString = ""
+
+    for (let i = 0; i < string.length; i++){
+        if (separators.includes(string[i-1])){
+            newString += string[i].toUpperCase
+        } else {
+            newString += string[i].tolowerCase
+        }
+
     }
-    return finalString
+
+    return newString 
 }
 
 //Resolution 
-function displayStringUpper() {
-    const arguments = getArguments()
-    if (!isValidArguments(arguments)){
-        return
+function displayWordWithUpperCase() {
+    const args = getArguments()
+    if (!isValidArguments(args)){
+        return 
     }
-    
-    const string = arguments[0]
 
-    console.log(letterOneOutOfTwo(string))
-    
+    const string = args[0]
+
+    console.log(beginWordWithUpperCase(string))
 }
-    
-//Resolution 
-function displaystringdUpper() {
-    const args = getArguments();
-    if (!validateArguments(args)){
-        return
-    }
-    const string = letterOneOutOfTwo(args)
-    console.log(string)
-} 
-//Affichage
-displaystringdUpper()
+
+//Display
+displayWordWithUpperCase()
+

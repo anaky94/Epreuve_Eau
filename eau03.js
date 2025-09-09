@@ -1,67 +1,81 @@
-/* Paramètre à l'envers
-Créez un programme qui affiche ses arguments reçus à l’envers.
+/*
+Créez un programme qui affiche le N-ème élément de la célèbre suite de Fibonacci. (0, 1, 1, 2) étant le début de la suite et le premier élément étant à l’index 0.
 Exemples d’utilisation :
-$> python exo.py “Suis” “Je” “Drôle”
-Drôle
-Je
-Suis
-$> python exo.py ha ho
-ho
-ha
-$> python exo.py “Bonjour 36”
-Bonjour 36
-Afficher error et quitter le programme en cas de problèmes d’arguments.
+$> python exo.py 3
+2
+$>
 
+Afficher -1 si le paramètre est négatif ou mauvais.
 */
 
+
 //Parsing
-function getArguments() {
+function getArguments () {
     const arguments = process.argv.slice(2);
     return arguments;
 }
 
-//Gestion d'erreur 
-function isValidArguments(arguments) {
-    if (arguments.length < 2) {
-        console.error("ce script nécessite minimum deux arguments");
-        return false;
+//Gestion d'erreur
+function isValidArguments (arguments) { 
+    const num = Number(arguments[0])
+    if (isNaN(num)){
+    console.error("l'argument doit être un nombre.")
+    return false;
     }
-    return true
-}
+} 
 
-
-
-function getReversedStrings(strings) { //la function renverse la chaine de caractère
-    const reversedArray = [];
-    for (let i = strings.length - 1; i >= 0; i--){
-        getReversedStrings.push(strings[i]);
+function controlArguments() {
+    const num = Number(arguments[0])
+    if (num < 0 ){
+        console.error(-1)
+        return false
     }
-    return reversedArray ;
+    return true 
 }
 
-//Résolution
-function displayReversedArguments() {
-
-  const arguments = getArguments();
-
-  if (!isValidArguments(arguments)){
-    return
-  }
-
-  const  reversedArguments = getReversedStrings(arguments) 
-  return reversedArguments
-
-}
-
-function displayArray(array) {
-    for(const element of array){
-        console.log(element)
+function validArgumentLength(arguments) {
+    if (arguments.length !== 1){
+        console.error("Ce script nécessite 1 argument.")
+        return false
     }
+    return true; 
 }
 
-displayArray(getReversedStrings())
+//Utilitaire
+function fibonacci(index) {
+    let a = 0,  b = 1;
+    for (let i = 2; i <= index; i++){
+        let c = a + b;
+        a = b;
+        b = c;
+    }
+    return b; 
+}
+
+// Resolution 
+function chekIfFibonacci(){
+    const arguments = getArguments()
+
+    if (!isValidArguments(arguments)){
+        return
+    }
+    if (!controlArguments(arguments)){
+        return
+    }
+    if (!validArgumentLength(arguments)){
+        return;
+    }
+    const index = arguments[0]
+    console.log(fibonacci(index))
+}
 
 
+// Afficher les resultats 
+function displayFibonacci() {
+    const arguments = getArguments();
 
+    const n = Number(arguments[0]);
+    console.log(fibonacci(n));
+}
 
-
+displayFibonacci();

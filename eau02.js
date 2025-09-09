@@ -1,42 +1,67 @@
-/* Créez un programme qui affiche toutes les différentes combinaisons de deux nombre entre 00 et 99 dans l’ordre croissant.
+/* Paramètre à l'envers
+Créez un programme qui affiche ses arguments reçus à l’envers.
 Exemples d’utilisation :
-$> python exo.py
-00 01, 00 02, 00 03, 00 04, ... , 00 99, 01 02, ... , 97 99, 98 99
-$>
+$> python exo.py “Suis” “Je” “Drôle”
+Drôle
+Je
+Suis
+$> python exo.py ha ho
+ho
+ha
+$> python exo.py “Bonjour 36”
+Bonjour 36
+Afficher error et quitter le programme en cas de problèmes d’arguments.
+
 */
 
-//Gestion d'erreur : 
-function isValideArguments (arguments) {
-    if (arguments.length === 0){
-        return true
-    }else{
-        console.error("ce script ne nécessite pas d'arguments")
-        return false
-    };
-} 
+//Parsing
+function getArguments() {
+    const arguments = process.argv.slice(2);
+    return arguments;
+}
 
-//Utilitise
-function getCumbin() {
-    const combinanison = [];
-    for (let i = 0; i <= 100; i++){
-        for (let j = i + 1; j <= 100; j++){    
-            combinanison.push( 
-                `${i.toString().padStart(2, '0')} ${j.toString().padStart(2, '0')}`);
-          }
+//Gestion d'erreur 
+function isValidArguments(arguments) {
+    if (arguments.length < 2) {
+        console.error("ce script nécessite minimum deux arguments");
+        return false;
     }
-    return combinanison.join(', ');
+    return true
+}
+
+
+
+function getReversedStrings(strings) { //la function renverse la chaine de caractère
+    const reversedArray = [];
+    for (let i = strings.length - 1; i >= 0; i--){
+        getReversedStrings.push(strings[i]);
+    }
+    return reversedArray ;
 }
 
 //Résolution
-function CreatCumbin() {
-    if (!isValideArguments(arguments)){
-        return
-    }    
+function displayReversedArguments() {
+
+  const arguments = getArguments();
+
+  if (!isValidArguments(arguments)){
+    return
+  }
+
+  const  reversedArguments = getReversedStrings(arguments) 
+  return reversedArguments
+
 }
 
-//Affichage
-function display() {
- const result = getCumbin();
- console.log(result);
+function displayArray(array) {
+    for(const element of array){
+        console.log(element)
+    }
 }
-display()
+
+displayArray(getReversedStrings())
+
+
+
+
+

@@ -1,74 +1,105 @@
 /* 
-Créez un programme qui affiche toutes les valeurs comprises entre deux nombres dans l’ordre croissant. Min inclus, max exclus.
+Créez un programme qui affiche le premier index d’un élément recherché dans un tableau. Le tableau est constitué de tous les arguments sauf le dernier. L’élément recherché est le dernier argument. Afficher -1 si l’élément n’est pas trouvé.
 
 Exemples d’utilisation :
-$> python exo.py 20 25
-20 21 22 23 24
-$> python exo.py 25 20
-20 21 22 23 24
-$> python exo.py hello
-error
+$> python exo.py 
+6
+
+
+$> python exo.py test test test
+0
+
+$> python exo.py test boom
+-1
 
 Afficher error et quitter le programme en cas de problèmes d’arguments.
  */
 
 //parsing
-function  getArguments(){
+function getArguments(){
     const arguments = process.argv.slice(2)
-    return arguments
+    return arguments 
+    
+
 }
 
-
-//Gestion d'erreur 
-function isvalidArguments (validArgumentLength){
+//Gestion d'erreur
+function isvalidArguments(validArgumentLength){
     if (!validArgumentLength){
         console.log("ce script nécéssite minimum deux arguments")
-        return validArgumentLength;
+        return validArgumentLength
     }
 
 }
 
-function isvalidArgumentsNotStrings() {
-    for (let i =0; i < arguments.length; i++){
-        if (typeof arguments[i] === "string"){
-            console.error("error")
-            return false
+
+function findFirstIndex(){
+    const arguments = getArguments();
+
+    const lastIndex = arguments.length - 1
+    const lastArg = arguments[lastIndex]
+   
+  
+    for (let i = 0; i < lastIndex; i++){
+        if (arguments[i] === lastArg){
+            return i; //trouvé 
         }
     }
-    return true
+    return -1; // non trouvé
+
 }
 
-function digitalSeries(num1, num2) {
-    const [min,max] = [Math.min(num1, num2), Math.max(num1,num2)]
-    for(let i = min; i <= max; i++){
-        console.log(i);
-    }
-    retrun 
-}
 
-//Résolution 
-function getSeriesArguments() {
+
+//Resolution 
+function getfindFirstIndex(){
     const arguments = getArguments()
 
-    const validArgumentLength = arguments.length < 2 
-
-    if (!isvalidArguments(validArgumentLength)){
-        return 
-    }
-    if (!isvalidArgumentsNotStrings(arguments)){
+    const validArgumentLength = arguments.length === 0
+    
+    if (!validArgumentLength(arguments) ){
         return
     }
-    const digitalSeriesArguments = getSeriesArguments(arguments)
+    const findFirstIndex = getfindFirstIndex((arguments))
 
-    return digitalSeriesArguments
+    return findFirstIndex
 }
 
 //Affichage
-function displayDigitalSeries() {
-    const [num1, num2] =isvalidArguments(getArguments());
-    digitalSeries(num1,num2);
-    return
+function displayIndex(){
+    console.log(findFirstIndex());
+
 }
 
+displayIndex();
 
-displayDigitalSeries();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

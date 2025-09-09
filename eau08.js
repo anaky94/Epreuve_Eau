@@ -1,67 +1,64 @@
-//Créez un programme qui met en majuscule la première lettre de chaque mot d’une chaîne de caractères. Les autres lettres devront être en minuscules. Les mots ne sont délimités que par un espace, une tabulation ou un retour à la ligne.
+ 
+// Créez un programme qui détermine si une chaîne de caractères ne contient que des chiffres.
 
 // Exemples d’utilisation :
-// $> python exo.py “bonjour mathilde, comment vas-tu ?!”
-// Bonjour Mathilde, Comment Vas-tu ?!
-
+// $> python exo.py “4445353”
+// true
 // $> python exo.py 42
-// error
+// true
+
+// $> python exo.py “Bonjour 36”
+// false
 
 // Afficher error et quitter le programme en cas de problèmes d’arguments.
 
-//Parsing 
-function getArguments() {
-    const arguments = process.argv.slice(2)
-    return arguments
-}
-//Gestion d'erreur
-function isValidArguments(arguments) {
-    if (arguments.length === 0){
-        console.error("Erreur : ce script nécéssite 1 argument")
+//Utilitaires 
+function isNumber(str) {
+    if (str.startsWith('-')){
+        str = str.substring(1)
+
+    }
+
+    let compteur = 0;
+    for (let i=0; i < str.length; i++){
+        if(parseInt(str[i])) {
+            compteur++
+        }
+        return str.length > 0; 
+    }
+
+    if (compteur === str.length){
+        return true
+    }else {
         return false
     }
-    return true
 }
 
-function validateArgumentsNotNumber() {
-   for(let i = 0; i < arguments.length; i++){
-        if (typeof arguments[i] === "number"){
-            console.error("error")
-            return false
-        }
-   }
-   return true
+//Parsing
+function getArguments(){
+    const arguments = process.argv.slice(2)
+    return arguments;
 }
 
-//Utilitaires
-function beginWordWithUpperCase(string) {
-    const separators = [' ' ,'/t' ,'/n']
-    let newString = ""
-
-    for (let i = 0; i < string.length; i++){
-        if (separators.includes(string[i-1])){
-            newString += string[i].toUpperCase
-        } else {
-            newString += string[i].tolowerCase
-        }
-
+//Gestion d'erreur
+function isValidArguments (arguments){
+    if (arguments.length < 1){
+        console.error ("ce scrpipt nécéssite un argument")
+        return false
     }
-
-    return newString 
+    return true 
 }
 
 //Resolution 
-function displayWordWithUpperCase() {
-    const args = getArguments()
-    if (!isValidArguments(args)){
+function displayIsNumber() {
+    const arguments = getArguments()
+    if (!isValidArguments(arguments))
         return 
-    }
-
-    const string = args[0]
-
-    console.log(beginWordWithUpperCase(string))
+    
+    const isNum = chekIfNumber(arguments)
+    console.log(isNum)
 }
 
-//Display
-displayWordWithUpperCase()
-
+//Afficher le resultat 
+ displayIsNumber()
+  
